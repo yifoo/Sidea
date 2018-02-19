@@ -1,0 +1,213 @@
+/* msg */
+body .layer-asset-msg {
+    width: 262px !important;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+}
+/*body .layer-asset-msg .layui-layer-title{
+    height: 40px;
+    color: #fff;
+    background: #2E4968;
+    border-radius: 3px 3px 0 0;
+    border: 0;
+    font-size: 14px;
+    font-weight: 600;
+}*/
+body .layer-asset-msg .layui-layer-content {
+    background: url("success.png") no-repeat  40px 18px;
+    font-family: PingFangSC-Regular;
+    font-size: 32px;
+    color: #333333;
+    padding: 23px 10px 25px 90px;
+    line-height: 20px;
+}
+
+/* state */
+body .layer-asset-state {
+    width: 420px !important;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+}
+body .layer-asset-state .flow-layer{
+    width:420px;
+}
+body .layer-asset-state .layui-layer-title{
+    height: 40px;
+    color: #fff;
+    background: #2E4968;
+    border-radius: 3px 3px 0 0;
+    border: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+body .layer-asset-state .layui-layer-setwin a{
+    color: #fff;
+}
+body .layer-asset-state .layui-layer-setwin .layui-layer-ico {
+    background: url(close.png) no-repeat;
+}
+body .layer-asset-state .layui-layer-content {
+    text-align: center;
+    padding: 15px 0 10px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #333;
+}
+body .layer-asset-state .layui-layer-btn {
+    text-align: left;
+    margin: 10px 95px 25px;
+    padding: 0;
+}
+body .layer-asset-state .layui-layer-btn a{
+    width: 100px;
+    height: 32px;
+    padding: 0;
+    margin: 0 30px 0 0;
+    background: #38577A;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
+    line-height: 32px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 0;
+}
+body .layer-asset-state .layui-layer-btn a.layui-layer-btn1{
+    width: 100px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    background: #ccc;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
+    line-height: 32px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* flow */
+body .layer-asset-flow {
+    width: 498px !important;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+}
+body .layer-asset-flow .layui-layer-title{
+    height: 40px;
+    color: #fff;
+    background: #2E4968;
+    border-radius: 3px 3px 0 0;
+    border: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+body .layer-asset-flow .layui-layer-setwin a{
+    color: #fff;
+}
+body .layer-asset-flow .layui-layer-setwin .layui-layer-ico {
+    background: url(close.png) no-repeat;
+}
+body .layer-asset-flow .layui-layer-content {
+    padding: 15px 0 10px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #333;
+}
+body .layer-asset-flow .layui-layer-btn {
+    text-align: left;
+    margin: 10px 95px 25px;
+    padding: 0;
+}
+body .layer-asset-flow .layui-layer-btn a{
+    width: 100px;
+    height: 32px;
+    padding: 0;
+    margin: 0 30px 0 0;
+    background: #38577A;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
+    line-height: 32px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 0;
+}
+body .layer-asset-flow .layui-layer-btn a.layui-layer-btn1{
+    width: 100px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    background: #ccc;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
+    line-height: 32px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+/* process */
+body .layer-asset-process {
+    width: 788px !important;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+}
+body .layer-asset-process .layui-layer-title{
+    height: 40px;
+    color: #fff;
+    background: #2E4968;
+    border-radius: 3px 3px 0 0;
+    border: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+body .layer-asset-process .layui-layer-setwin a{
+    color: #fff;
+}
+body .layer-asset-process .layui-layer-setwin .layui-layer-ico {
+    background: url(close.png) no-repeat;
+}
+body .layer-asset-process .layui-layer-content {
+    padding: 0;
+    line-height: 20px;
+    font-size: 14px;
+    color: #333;
+    overflow: visible;
+}
+body .layer-asset-process .layui-layer-btn {
+     text-align: left;
+     margin: 10px 95px 25px;
+     padding: 0;
+ }
+body .layer-asset-process .layui-layer-btn a{
+    width: 100px;
+    height: 32px;
+    padding: 0;
+    margin: 0 30px 0 0;
+    background: #38577A;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
+    line-height: 32px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 0;
+}
+body .layer-asset-process .layui-layer-btn a.layui-layer-btn1{
+    width: 100px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    background: #ccc;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
+    line-height: 32px;
+    font-size: 14px;
+    cursor: pointer;
+}
