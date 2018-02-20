@@ -23,12 +23,12 @@ module.exports = {
     new HtmlWebpackPlugin({  //指定模板输出
       filename: 'index.html',
       template: './index.html',
-      chunks:['index','main']
+      chunks:['main','index']
     }),
     new HtmlWebpackPlugin({  //指定模板输出
       filename: 'detail.html',
       template: './index.html',
-      chunks:['detail']
+      chunks:['detail','index']
     }),
     new webpack.ProvidePlugin({     //自动生成全局变量,一旦引用,就会打包
       $:"jquery",
