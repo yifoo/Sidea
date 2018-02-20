@@ -4,7 +4,7 @@
   "description": "寻找Idea的园地,利用jquery+webpack+node开发",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --colors --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --colors --config config/webpack.dev.js",
     "build": "webpack --progress --colors --config config/webpack.prod.js",
     "server": "node config/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/haohome/sidea#readme",
   "devDependencies": {
+    "autoprefixer": "^8.0.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
@@ -31,10 +32,14 @@
     "css-loader": "^0.28.9",
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
+    "less": "^3.0.1",
+    "less-loader": "^4.0.5",
+    "postcss-loader": "^2.1.0",
     "style-loader": "^0.20.2",
     "webpac": "^1.0.1",
     "webpack": "^3.11.0",
     "webpack-dev-middleware": "^2.0.5",
+    "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {

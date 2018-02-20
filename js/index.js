@@ -1,1 +1,2 @@
-console.log("这是测试");
+import "../css/normalize.css";
+import "../css/base.less";
