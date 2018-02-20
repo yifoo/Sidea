@@ -7,18 +7,59 @@
   <link rel="shortcut icon" href="./img/favicon.ico"/>
   <link rel="bookmark" href="./img/favicon.ico"/>
   <title>Sidea</title>
+  <script src="//at.alicdn.com/t/font_571042_flredjyq2kv5cdi.js"></script>
 </head>
 <body>
+  <!-- 头部搜索 -->
   <header class="header">
     <img src="./img/s.png" alt="" class="logo">
     <div class="head-search">
       <input type="text" placeholder="搜索:请输入关键词">
-      <i class="search-icon"></i>
+      <svg class="icon icon-search" aria-hidden="true">
+        <use xlink:href="#icon-search"></use>
+      </svg>
     </div>
-    <i class="menu-icon">三</i>
+    <svg class="icon icon-menu" aria-hidden="true">
+      <use xlink:href="#icon-menu"></use>
+    </svg>
   </header>
   <section class="container">
-    
+    <div id="tabs">
+      <ul class="tabs">
+        <li class="item active">
+          <a data-toggle="tab" href="#tab1">
+            <svg class="icon icon-clock" aria-hidden="true">
+              <use xlink:href="#icon-clock"></use>
+            </svg>
+            最新</a>
+        </li>
+        <li class="item">
+          <a data-toggle="tab" href="#tab2">
+            <svg class="icon icon-trend" aria-hidden="true">
+              <use xlink:href="#icon-trend"></use>
+            </svg>
+            趋势</a>
+        </li>
+        <li class="item">
+          <a data-toggle="tab" href="#tab3">
+            <svg class="icon icon-hot" aria-hidden="true">
+              <use xlink:href="#icon-hot"></use>
+            </svg>
+            热门</a>
+        </li>
+      </ul>
+      <div class="tab-container">
+        <div id="tab1" class="active">
+          妹劳排奖早调忘浪！美闻排读儿况牛会第席！
+        </div>
+        <div id="tab2">
+          团木童汉统确简害据汉力沙觉队简！礼点独。
+        </div>
+        <div id="tab3">
+          关标型贝礼吸幸板幸背姆凡江何冰。顶东败！
+        </div>
+      </div>
+    </div>
   </section>
 </body>
 </html>

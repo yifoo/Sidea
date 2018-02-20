@@ -1,6 +1,6 @@
 var utils ={
   /**
-   * 改变H根元素font-size
+   * 改变根元素font-size
    */
   changeRootSize: function(){
     var html=document.documentElement;  //根元素
@@ -9,6 +9,29 @@ var utils ={
   //把document的fontSize大小设置成跟窗口成一定比例的大小，从而实现响应式效果。
     html.style.fontSize = 20 * (clientWidth / 750) + 'px';
     console.log(html.style.fontSize);
+  },
+
+  /**
+   * @name: 通用事件绑定
+   * @param:elem:事件作用元素,type:事件类型,selector:作用元素父元素,fn:事件回调函数
+   * @description:该方法可传3个参数或4个参数,3个参数:没有冒泡,4个参数:有冒泡
+   */
+  bindEvents:function(elem,type,selector,fn){
+    if(fn==null){		//如果没有第四个参数
+      fn=selector;
+      selector=null;
+    }
+    elem.addEventListener(type,function(e){
+      if(selector){
+        var target=e.target
+        if(target.matches(selector)){
+          fn.call(this,e)
+          // console.log(selector);
+        }
+      }else{
+        fn(e)
+      }
+    })
   }
 }
 export default utils;
