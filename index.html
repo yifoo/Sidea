@@ -7,59 +7,151 @@
   <link rel="shortcut icon" href="./img/favicon.ico"/>
   <link rel="bookmark" href="./img/favicon.ico"/>
   <title>Sidea</title>
-  <script src="//at.alicdn.com/t/font_571042_flredjyq2kv5cdi.js"></script>
+  <script src="//at.alicdn.com/t/font_571042_xgn4af20mokcsor.js"></script>
 </head>
 <body>
-  <!-- 头部搜索 -->
-  <header class="header">
-    <img src="./img/s.png" alt="" class="logo">
-    <div class="head-search">
-      <input type="text" placeholder="搜索:请输入关键词">
+  <!-- 头部栏header  三个结构  左边logo 中间搜索  右边登录box-->
+  <header class="header" id="header">
+    <div class="logo"></div>
+    <div class="head-middle">
+      <div class="sort">
+        <ul>
+          <li class="active">最新</li>
+          <li>热门</li>
+        </ul>
+      </div>
+      <input type="text" placeholder="搜索：请输入关键词">
       <svg class="icon icon-search" aria-hidden="true">
         <use xlink:href="#icon-search"></use>
       </svg>
+      <button>提问</button>
     </div>
-    <svg class="icon icon-menu" aria-hidden="true">
-      <use xlink:href="#icon-menu"></use>
-    </svg>
-  </header>
-  <section class="container">
-    <div id="tabs">
-      <ul class="tabs">
-        <li class="item active">
-          <a data-toggle="tab" href="#tab1">
-            <svg class="icon icon-clock" aria-hidden="true">
-              <use xlink:href="#icon-clock"></use>
-            </svg>
-            最新</a>
-        </li>
-        <li class="item">
-          <a data-toggle="tab" href="#tab2">
-            <svg class="icon icon-trend" aria-hidden="true">
-              <use xlink:href="#icon-trend"></use>
-            </svg>
-            趋势</a>
-        </li>
-        <li class="item">
-          <a data-toggle="tab" href="#tab3">
-            <svg class="icon icon-hot" aria-hidden="true">
-              <use xlink:href="#icon-hot"></use>
-            </svg>
-            热门</a>
-        </li>
-      </ul>
-      <div class="tab-container">
-        <div id="tab1" class="active">
-          妹劳排奖早调忘浪！美闻排读儿况牛会第席！
-        </div>
-        <div id="tab2">
-          团木童汉统确简害据汉力沙觉队简！礼点独。
-        </div>
-        <div id="tab3">
-          关标型贝礼吸幸板幸背姆凡江何冰。顶东败！
-        </div>
+    <div class="r-box">
+      <div class="loginbox">
+        <ul>
+          <li>登录</li>
+          <li>|</li>
+          <li>注册</li>
+        </ul>
       </div>
+      <!-- 移动端才显示菜单 -->
+      <svg class="icon icon-menu" aria-hidden="true">
+        <use xlink:href="#icon-menu"></use>
+      </svg>
     </div>
+  </header>
+  <section id="section" class="section">
+    <!-- 菜单分类 -->
+    <div class="menu" id="menu">
+      <ul>
+        <li class="active">购物</li>
+        <li>礼物</li>
+        <li>食品</li>
+        <li>穿着</li>
+        <li>视频</li>
+        <li>音乐</li>
+      </ul>
+    </div>
+    <!-- 主体部分 -->
+    <div id="main" class="main">
+      <div class="l-section">
+        <!-- 导航视图 -->
+        <div id="tabs">
+          <div class="l-tabs">
+            <ul>
+              <li class="active"> 
+                <svg class="icon icon-grid" aria-hidden="true">
+                  <use xlink:href="#icon-grid"></use>
+                </svg>
+              </li>
+              <li>
+                <svg class="icon icon-list" aria-hidden="true">
+                  <use xlink:href="#icon-list"></use>
+                </svg>
+              </li>
+            </ul>
+          </div>
+          <ul class="r-tabs">
+            <li class="item active">
+              <a data-toggle="tab1">
+                <svg class="icon icon-clock" aria-hidden="true">
+                  <use xlink:href="#icon-clock"></use>
+                </svg>
+                最新</a>
+            </li>
+            <li class="item">
+              <a data-toggle="tab2">
+                <svg class="icon icon-trend" aria-hidden="true">
+                  <use xlink:href="#icon-trend"></use>
+                </svg>
+                趋势</a>
+            </li>
+            <li class="item">
+              <a data-toggle="tab3">
+                <svg class="icon icon-hot" aria-hidden="true">
+                  <use xlink:href="#icon-hot"></use>
+                </svg>
+                热门</a>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-container">
+            <div id="tab1" class="active">
+              <div class="content-box">
+                <div class="content">
+                  <h3 class="title">这是一个标题的意走权！拥区查提索。随盛济雷</h3>
+                  <div class="main-content">
+                    <p>村巨的意走权！拥区查列状买顺诉汽讲闻司！背组席广贝！做海示证灵自影取整美妇！死伊敢脑门临向计画。视饭顾余充规望。务它旅利古跳数顿困救？各女几统军静坐够简切姐便散表警势真阳落！怀忆性路安类忘！喊普阳渐便部条告议？妙更何口列后姑们断莱！游奥料果细佛岁。底阳够？提索。随盛济雷落试？</p>
+                    <div>
+                      <img src="./img/s.png" alt="">
+                    </div>
+                  </div>
+                  <div class="foot-content clear">
+                    <span class="fl">
+                      <svg class="icon icon-bulb" aria-hidden="true">
+                        <use xlink:href="#icon-bulb"></use>
+                      </svg>
+                      <a href="">15条建议</a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="content-box">
+                <div class="content">
+                  <h3 class="title">这是一个标题的意走权！拥区查提索。随盛济雷</h3>
+                  <div class="main-content">
+                    <p>村巨的意走权！拥区查提索。随盛济雷落试？</p>
+                    <div>
+                      <img src="./img/s.png" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="content-box">
+                <div class="content">
+                  <h3 class="title">这是一个标题的意走权！拥区查提索。随盛济雷</h3>
+                  <div class="main-content">
+                    <p>村巨的意走权！拥区查提索。随盛济雷落试？</p>
+                    <div>
+                      <img src="./img/s.png" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div id="tab2">
+              团木童汉统确简害据汉力沙觉队简！礼点独。
+            </div>
+            <div id="tab3">
+              关标型贝礼吸幸板幸背姆凡江何冰。顶东败！
+            </div>
+          </div>
+      </div>
+      <div class="r-section"></div>
+      
+    </div>
+    
   </section>
 </body>
 </html>

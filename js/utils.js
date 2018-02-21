@@ -5,7 +5,9 @@ var utils ={
   changeRootSize: function(){
     var html=document.documentElement;  //根元素
     var clientWidth = html.clientWidth;   //viewport窗口尺寸
-    console.log(clientWidth*2);
+    if(clientWidth>600){
+      clientWidth=600
+    }
   //把document的fontSize大小设置成跟窗口成一定比例的大小，从而实现响应式效果。
     html.style.fontSize = 20 * (clientWidth / 750) + 'px';
     console.log(html.style.fontSize);
@@ -13,7 +15,7 @@ var utils ={
 
   /**
    * @name: 通用事件绑定
-   * @param:elem:事件作用元素,type:事件类型,selector:作用元素父元素,fn:事件回调函数
+   * @param:elem:事件作用父元素,type:事件类型,selector:事件作用元素,fn:事件回调函数(参数代表e.target)
    * @description:该方法可传3个参数或4个参数,3个参数:没有冒泡,4个参数:有冒泡
    */
   bindEvents:function(elem,type,selector,fn){
@@ -23,10 +25,11 @@ var utils ={
     }
     elem.addEventListener(type,function(e){
       if(selector){
-        var target=e.target
+        var target=e.target;
         if(target.matches(selector)){
-          fn.call(this,e)
-          // console.log(selector);
+          fn.call(this,e.target)
+        }else if(target.parentNode.matches(selector)){
+          fn.call(this,target.parentNode)
         }
       }else{
         fn(e)
