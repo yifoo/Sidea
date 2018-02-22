@@ -29,7 +29,7 @@ var utils ={
         if(target.matches(selector)){
           fn.call(this,e.target)
         }else if(target.parentNode.matches(selector)){
-          fn.call(this,target.parentNode)
+          fn.call(this,target.parentNode) //二级子元素
         }
       }else{
         fn(e)
