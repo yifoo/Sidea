@@ -1,5 +1,8 @@
 import "../css/main.less";
 import utils from './utils';
+/**
+ * 切换:最新/趋势/热门
+ */
 (()=>{
   var elem=document.getElementsByClassName("r-tabs")[0];
   utils.bindEvents(elem,"click","a",function(target){
@@ -18,5 +21,17 @@ import utils from './utils';
       value.removeAttribute("class");
     }
     tabShow.setAttribute("class","active");
+  })
+})();
+
+/**
+ * 视图样式切换
+ */
+
+ (()=>{
+  var tabs=document.querySelectorAll(".l-tabs")[0];
+  utils.bindEvents(tabs,'click','li',function(target){
+    console.log("绑定",target);
+    target.classList.toggle("active");
   })
 })()
