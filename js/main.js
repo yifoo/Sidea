@@ -34,4 +34,4 @@ import utils from './utils';
     console.log("绑定",target);
     target.classList.toggle("active");
   })
-})()
+})();

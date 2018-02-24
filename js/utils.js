@@ -1,4 +1,5 @@
 var utils ={
+  
   /**
    * 改变根元素font-size
    */
@@ -8,7 +9,7 @@ var utils ={
     if(clientWidth>600){
       clientWidth=600
     }
-  //把document的fontSize大小设置成跟窗口成一定比例的大小，从而实现响应式效果。
+  //把document的fontSize大小设置成跟窗口成一定比例的大小。
     html.style.fontSize = 20 * (clientWidth / 750) + 'px';
     console.log(html.style.fontSize);
   },
