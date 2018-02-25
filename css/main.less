@@ -14,7 +14,7 @@
   height: 2.5rem;
   margin-left: 1rem;
   background: url(../img/logo.png) center no-repeat;
-  background-size: contain;;
+  background-size: contain;
 }
 /*搜索框样式*/
 .head-middle{
@@ -236,11 +236,62 @@
     width:100%;
   }
 }
-
 .tab-container{
   margin:.25rem -0.25rem; /*弥补后面padding造成的间距*/
   position: relative;
   background: @c-white;
+  .content-box{
+    float: left;
+    padding:.25rem;
+    width:50%;
+    box-sizing: border-box
+  }
+  .content{
+    padding: .5rem;
+    background:@c-white;
+    .main-content{
+      cursor: pointer;
+      .title{
+        font-size:15px;
+        margin-bottom: .5rem;
+      }
+    }
+  .main-content p{
+    width:75%;
+    min-height:4rem;
+    display: inline-block;
+  }
+  .main-content>div{
+    float: right;
+    width:25%;
+    max-height:4rem;
+    text-align: center
+  }
+  .main-content img{
+    max-height: 4.5rem;
+    max-width: 4.5rem;
+  }
+  .foot-content{
+    margin-top:.5rem;
+    span{
+      display: inline-block;
+      background-color: @bg-color;
+      padding:0px 3px;
+      a{
+        font-size:10px;
+        margin-left:-5px
+      }
+    }
+  }
+}
+  .content:hover{
+    .foot-content span{
+      background-color: @deep-red;
+      a{
+        color:@c-white;
+      }
+    }
+  }
 }
 .tab-container>div{
   position:absolute;
@@ -253,62 +304,10 @@
   opacity: 1;
   z-index:2;
 }
-.tab-container .content-box{
-  float: left;
-  padding:.25rem;
-  width:50%;
-  box-sizing: border-box
-}
 @media screen and(max-width: 768px){
   .tab-container .content-box{
     width:100%;
-
   }
-}
-.tab-container .content{
-  padding: .5rem;
-  background:@c-white;
-  .main-content{
-    cursor: pointer;
-  }
-}
-.tab-container .content .title{
-  font-size:15px;
-  margin-bottom: .5rem;
-}
-.tab-container .main-content p{
-  width:75%;
-  min-height:4rem;
-  display: inline-block;
-}
-.tab-container .main-content>div{
-  float: right;
-  width:25%;
-  max-height:4rem;
-  text-align: center
-}
-.tab-container .main-content img{
-  max-height:4rem;
-}
-.tab-container .foot-content{
-  margin-top:.5rem;
-}
-.tab-container .foot-content span{
-  display: inline-block;
-  background-color: @bg-color;
-  padding:0px 3px;
-}
-.tab-container .content:hover{
-  .foot-content span{
-    background-color: @deep-red;
-    a{
-      color:@c-white;
-    }
-  }
-}
-.tab-container .foot-content span a{
-  font-size:10px;
-  margin-left:-5px
 }
 .icon-bulb{
   font-size:14px

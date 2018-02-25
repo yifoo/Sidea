@@ -35,3 +35,41 @@ import utils from './utils';
     target.classList.toggle("active");
   })
 })();
+
+/**
+ * 渲染idea
+ */
+(()=>{
+  $.ajax({
+    url:"/req/idea",
+    methods:"get",
+    success:function(data){
+      var html="";
+      for(var i=0;i<data.length;i++){
+        html+=`
+        <div class="content-box">
+          <div class="content">
+            <h3 class="title">${data[i].title}</h3>
+            <div class="main-content">
+              <p>${data[i].content}</p>
+              <div>
+                <img src="${data[i].img}" alt="">
+              </div>
+            </div>
+            <div class="foot-content clear">
+              <span class="fl">
+                <svg class="icon icon-bulb" aria-hidden="true">
+                  <use xlink:href="#icon-bulb"></use>
+                </svg>
+                <a href="">15条点子</a>
+              </span>
+              <a href="" class="fr">${data[i].category}</a>
+            </div>
+          </div>
+        </div>
+        `
+      }
+      $("#tab1").append(html);
+    }
+  })
+})()
