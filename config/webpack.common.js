@@ -41,32 +41,15 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.less$/,
-        use: ['style-loader', 'css-loader?importLoaders=1',
-        {
-          loader:"postcss-loader",
-          options: {           // 如果没有options这个选项将会报错 No PostCSS Config found
-              plugins: (loader) => [
-                  require('autoprefixer')({
-                    broswers:['last 5 versions']
-                  }), //CSS浏览器兼容
-              ]
-          }
-        },
-        'less-loader']
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader?importLoaders=1',"postcss-loader",'less-loader']
       },
-      { test: /\.js$/, 
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ["env"]
-          }
-        }
-      },
+      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
       {test: /\.(ico|png|jpg|gif)$/,use: [
         {
           loader: 'file-loader',
