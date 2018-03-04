@@ -49,7 +49,15 @@ module.exports = {
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader?importLoaders=1',"postcss-loader",'less-loader']
       },
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+      { test: /\.js$/, 
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ["env"]
+          }
+        }
+      },
       {test: /\.(ico|png|jpg|gif)$/,use: [
         {
           loader: 'file-loader',
