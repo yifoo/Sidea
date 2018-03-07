@@ -1,177 +1,353 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="shortcut icon" href="./img/favicon.ico"/>
-  <link rel="bookmark" href="./img/favicon.ico"/>
-  <title>Sidea</title>
-  <script src="//at.alicdn.com/t/font_571042_xgn4af20mokcsor.js"></script>
-</head>
-<body>
-  <!-- 头部栏header  三个结构  左边logo 中间搜索  右边登录box-->
-  <header class="header" id="header">
-    <div class="logo"></div>
-    <div class="head-middle">
-      <div class="sort">
-        <ul>
-          <li class="active">最新</li>
-          <li>热门</li>
-        </ul>
-      </div>
-      <input type="text" placeholder="搜索：请输入关键词">
-      <svg class="icon icon-search" aria-hidden="true">
-        <use xlink:href="#icon-search"></use>
-      </svg>
-      <button>提问</button>
-    </div>
-    <div class="r-box">
-      <div class="loginbox">
-        <ul>
-          <li>登录</li>
-          <li>|</li>
-          <li>注册</li>
-        </ul>
-      </div>
-      <!-- 移动端才显示菜单 -->
-      <svg class="icon icon-menu" aria-hidden="true">
-        <use xlink:href="#icon-menu"></use>
-      </svg>
-    </div>
-  </header>
-  <section id="section" class="section">
-    <!-- 菜单分类 -->
-    <div class="menu" id="menu">
-      <ul>
-        <li class="active">购物</li>
-        <li>礼物</li>
-        <li>美食</li>
-        <li>生活</li>
-        <li>穿着</li>
-        <li>视频</li>
-        <li>音乐</li>
-      </ul>
-    </div>
-    <!-- 主体部分 -->
-    <div id="main" class="main">
-      <div id="l-section">
-        <!-- 导航视图 -->
-        <div id="tabs">
-          <!-- 视图样式切换(栅格/列表) -->
-          <div class="l-tabs">
-            <ul>
-              <li class="active"> 
-                <svg class="icon icon-grid" aria-hidden="true">
-                  <use xlink:href="#icon-grid"></use>
-                </svg>
-              </li>
-              <li>
-                <svg class="icon icon-list" aria-hidden="true">
-                  <use xlink:href="#icon-list"></use>
-                </svg>
-              </li>
-            </ul>
-          </div>
-          <ul class="r-tabs">
-            <li class="item active">
-              <a data-toggle="tab1">
-                <svg class="icon icon-clock" aria-hidden="true">
-                  <use xlink:href="#icon-clock"></use>
-                </svg>
-                最新</a>
-            </li>
-            <li class="item">
-              <a data-toggle="tab2">
-                <svg class="icon icon-trend" aria-hidden="true">
-                  <use xlink:href="#icon-trend"></use>
-                </svg>
-                趋势</a>
-            </li>
-            <li class="item">
-              <a data-toggle="tab3">
-                <svg class="icon icon-hot" aria-hidden="true">
-                  <use xlink:href="#icon-hot"></use>
-                </svg>
-                热门</a>
-            </li>
+  <meta http-equiv="Expires" content="0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-control" content="no-cache">
+  <meta http-equiv="Cache" content="no-cache">
+	<link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+  <title>族印</title>
+  <body>
+    <div id="page" class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" id="page1" >
+          <a href="./index.html" class="logo iconfont"></a>
+          <ul>
+            <li><a href="http://">缘起</a></li>
+            <li><a href="http://">品牌故事</a></li>
+            <li><a href="http://">不得不说的</a></li>
+            <li><a href="http://">极致体验</a></li>
+            <li><a href="http://">远离喧嚣</a></li>
+            <li><a href="http://">一人一故事</a></li>
+            <div class="look"><a href="http://">查看产品</a></div>
           </ul>
+          <canvas id="canpic">您的浏览器不支持canvas标签</canvas>
+          <svg width="100%" height="100%" id="svgpic">
+              <text text-anchor="middle" x="50%" y="50%" class="svg-text">
+                  探寻即将消失的
+              </text>
+          </svg> 
         </div>
-        <div class="tab-container">
-            <div id="tab1" class="active">
-              <!-- <div class="content-box">
-                <div class="content">
-                  <h3 class="title">这是一个标题的意走权！拥区查提索。随盛济雷</h3>
-                  <div class="main-content">
-                    <p>村巨的意走权！拥区查列状买顺诉汽讲闻司！背组席广贝！做海示证灵自影取整美妇！死伊敢脑门临向计画。视饭顾余充规望。务它旅利古跳数顿困救？各女几统军静坐够简切姐便散表警势真阳落！怀忆性路安类忘！喊普阳渐便部条告议？妙更何口列后姑们断莱！游奥料果细佛岁。底阳够？提索。随盛济雷落试？</p>
-                    <div>
-                      <img src="http://lorempixel.com/200/200/food/" alt="">
-                    </div>
+        <div id="page2" class="swiper-slide" >
+        	<div id="page2-container" class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide slide1">
+                <div>
+                  <div id="whatText" class="what-text">
+                    <h3>什么是“族印”？</h3> 
+                    <p>2004年，第一次踏上云南，</p> <p>2009年，第二次来到云南，</p> <p>……</p> 
+                    <p>2015年，决定迁居至云南。</p> 
+                    <p>大理、丽江、腾冲、瑞丽、沧源、</p> 
+                    <p>泸沽湖、香格里拉、西双版纳……</p> 
+                    <p>云南的每一座城市，每一个村落都留下了我的足迹，</p> 
+                    <p>如果你问我，云南最让我着迷的是什么？</p> 
+                    <p>我会坚定的告诉你：</p> 
+                    <p>民族，悠久神秘的民族。</p> 
+                    <p>中国56个民族，云南有52个。</p> 
+                    <p>石林中的彝族，</p> 
+                    <p>蝴蝶泉边的白族，</p> 
+                    <p>澜沧江畔的傣族，</p> 
+                    <p>雪山脚下的纳西族，</p> <br> 
+                    <p>可以说，在云南，</p> 
+                    <p>无民族，无名胜！</p> <br> 
+                    <p>一个民族，一处印迹。</p>
                   </div>
-                  <div class="foot-content clear">
-                    <span class="fl">
-                      <svg class="icon icon-bulb" aria-hidden="true">
-                        <use xlink:href="#icon-bulb"></use>
-                      </svg>
-                      <a href="">15条点子</a>
-                    </span>
-                    <a href="" class="fr">购物</a>
+                  <div id="mountain" class="mountain">
+                    <img src="./img/page_2_bg_1.png" alt="">
                   </div>
                 </div>
-              </div> -->
+              </div>
+							<div class="swiper-slide slide2">
+                <div id="float-text" class="right">
+                  <p>
+                      洱海旁，我曾被那做着扎染的白族金花︵小姑娘︶所吸引；
+                    </p>
+                    <p>
+                      雨林中，我曾和那能歌善舞的傣族猫哆哩︵小伙子︶把酒言欢；
+                    </p>
+                    <p>
+                      怒江边，我曾替那溜索跨江上学的傈僳族孩子们所担心；
+                    </p>
+                    <p>
+                      深山里，我曾为那一边种田一边哼唱新歌的阿瓦人民所动容；
+                    </p>
+                    <p >
+                      ······
+                    </p>
+                    <p>
+                      &nbsp;
+                    </p>
+                    <p>
+                      美酒，
+                    </p>
+                    <p>
+                      时间越长，越香醇；
+                    </p>
+                    <p>
+                      民族，
+                    </p>
+                    <p>
+                      年代越久，越世俗。
+                    </p>
+                    <p>
+                      十年前，
+                    </p>
+                    <p>
+                      每一个民族如同一部尘封已久的书，
+                    </p>
+                    <p>
+                      等待着被翻阅；
+                    </p>
+                    <p>
+                      十年后，
+                    </p>
+                    <p>
+                      这些古老的书籍已经剥离了神秘的封皮；
+                    </p>
+                    <p>
+                      只能感叹这个时代变迁太快。
+                    </p>
+                    <p>
+                      &nbsp;
+                    </p>
+                    <p>
+                      族印，由此开始，
+                    </p>
+                    <p>
+                      一场民族和旅行的跨界合作。
+                    </p>
+                    <p>
+                      如同提拉米苏恋上冰淇淋，
+                    </p>
+                    <p>
+                      混合成甜美香醇的哈根达斯；
+                    </p>
+                    <p>
+                      黑加仑遇上朗姆酒，
+                    </p>
+                    <p>
+                      调制出清爽淡雅的鸡尾酒。
+                    </p>
+                    <p>
+                      让旅行不再只是一份行程，
+                    </p>
+                    <p>
+                      而是记忆中的艺术品。
+                    </p>
+                    <p>
+                      &nbsp;
+                    </p>
+                    <p>
+                      族印，
+                    </p>
+                    <p>
+                      用我视角，以我思想，
+                    </p>
+                    <p>
+                      将我认知，呈现给你，
+                    </p>
+                    <p>
+                      传承，延续！
+                    </p>
+                    <p>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族印产品发起人
+                    </p>
+                </div>
+              </div>
+						</div>
+						<div class="page2Nav">
+						</div>
+        	</div>
+        </div>
+        <div  id="page3" class="swiper-slide">
+          <div id="brand-box">
+            <div class="content1">
+              <h2>族印·品牌故事</h2>
+              <p>对歌的白族，</p> 
+              <p>泼水的傣族，</p> 
+              <p>玩火的佤族，</p> 
+              <p>刀尖上的傈僳族，</p> 
+              <p>雪山下的纳西族……</p> <br> 
+              <p>如果说石林、雪山、古城所展现的是云南外在，</p> 
+              <p>那么特有的少数民族文化诠释的则是云南灵魂，</p> 
+              <p>初次来云南，我被这里独有的民族文化所吸引；</p> 
+              <p>再次来云南，我被渐渐模糊的民族印迹所惋惜。</p> 
+              <p>“外在”已被保护，“灵魂”却在逝去。</p> <br>
+              <p>也许，有一天，</p> 
+              <p>白族不再对歌；</p> 
+              <p>傣族不再泼水；</p> 
+              <p>佤族不再玩火；</p>
+            </div>
+            <div class="content2" data-toggle="show">
+              <h2></h2>
+              <p>那时，我只能在图书馆的典藏中找到这段尘封的记忆；</p> 
+              <p>也许，有一天，</p> 
+              <p>傈僳族不在刀尖上；</p> 
+              <p>纳西族不在雪山下……</p> 
+              <p>那时，我只能在网站上的视频中看到这份久违的神圣。</p> <br> 
+              <p>总以为人生只有相逢，</p> 
+              <p>却没想到，</p> 
+              <p>还有错过，还有遗憾，还有来不及。</p> 
+              <p>趁年轻，趁我还有一颗探索的心，赶紧转转！</p> 
+              <p>趁有梦，趁我们的民族魂魄还在，抓紧看看！</p> <br> 
+              <p>一民族，一世界；</p> 
+              <p>族印，探寻即将消逝的！</p>
+            </div>
+          </div>
+
+        </div>
+        <div id="page4" class="swiper-slide">
+          <div class="text-box">
+            <h2 >不得不说的</h2> 
+            <h3>No.1 【难过】</h3> 
+            <div>
+              <div class="text-left">
+              <p>族印产品做好后，</p> 
+              <p>先后发给各大OTA旅行平台，</p> 
+              <p>结果，悲剧了，没人愿意力推。</p> 
+              <p>究其原因，很简单，</p> 
+              <p>所有人都认为这只是一份普通的昆大丽线路，</p> 
+              <p>没有什么特色！</p> <br> 
+              <p>没有特色？我想吐血！</p> 
+              <p>从设计、考察到元素组建、运作整合，</p> 
+              <p>前前后后整整耗时三个多月，</p> 
+              <p>这个时长绝对可以排名云南第一了。</p> 
+              <p>因为，我坚信，</p> 
+              <p>耗时久不一定是好产品，</p> 
+              <p>但好产品一定是用时间检验出来的。</p> <br> 
+              <p>每一个餐厅的选择，</p> 
+              <p>每一餐菜单的制定，</p> 
+              <p>每一家酒店的考察，</p> 
+              <p>每一处民族体验的探寻，</p> 
+              <p>……</p>
+            </div> 
+            <div class="text-right">
+              <p>三个月来，</p> 
+              <p>我们做的最多的一件事，</p> 
+              <p>修改，修改，再修改；</p> 
+              <p>封测，封测，再封测。</p> <br> 
+              <p>菜单是一道菜一道菜吃出来的，</p> 
+              <p>酒店是一张床一张床住出来的，</p>
+              <p>景点路线是一遍一遍游出来的，</p> 
+              <p>在哪里吃中饭，在哪里吃晚饭，</p> 
+              <p>怎么安排行程，早上能够多睡一会，</p> 
+             <p>怎么整合线路，乘车时间能够减少一点……</p> <br> 
+             <p>没有调查，就没有发言权，</p> 
+             <p>族印产品，就是一份完整的云南旅行体验报告。</p> 
+             <p>我们不是在研发一条线路，</p> 
+             <p>而是在用心匠造一份作品，</p> 
+             <p>可以让家人、朋友一起来玩，</p> 
+             <p>不为名誉，只为更好。</p>
+             </div>
+           </div>
+         </div>
+
+         </div>
+         <div id="page5" class="swiper-slide">
+            <div class="box">
+                <div class="list">
+                  <ul>
+                    <li class="p7">
+                        <h2>【主题篇】</h2>
+                        <p>洗脸，8秒钟必须出热水；<br>
+                          吃饭，餐具必须当面烫过；<br>
+                          乘车，坚决不坐最后一排；<br>
+                          Morning call，一定要设3次闹铃；<br>
+                          ……</p>
+                    </li>
+                    <li class="p6">
+                        <h2>【设计篇】</h2>
+                        <p>如果我是旅游者，我该怎么玩？<br>
+                          住的，不求奢华，但求精致；<br>
+                          吃的，不求饕餮，但求特色；<br>
+                          景点，不求繁多，但求经典；<br>
+                        ……</p>
+                    </li>
+                    <li class="p5">
+                        <h2>【元素篇】</h2>
+                        <p>束河古镇，纳西院子；<br>
+                          房间45㎡，床宽2米；<br>
+                          床垫软硬适中，布草整洁无异味；<br>
+                          TOTO卫具，欧莱雅洗浴用品，上下水通畅；<br>
+                      ……</p>
+                    </li>
+                    <li class="p4">
+                        <h2>【探秘篇】</h2>
+                        <p>彝族的毕摩祭天礼；<br>
+                          摩梭人的夜爬花楼；<br>
+                          傣族的虫子宴；<br>
+                          佤族的摸你黑；<br>
+                        ……</p>
+                    </li>
+                    <li class="p3">
+                        <h2>【领队篇】</h2>
+                        <p>我是一名使者；<br>
+                          带你探寻这里的民族部落；<br>
+                          我是一名玩伴；<br>
+                          陪你玩遍云南的山川古镇；<br>
+                        ……</p>
+                    </li>
+                    <li class="p2">
+                        <h2>【派对篇】</h2>
+                        <p>星空中，雪山下；<br>
+                          古老的东巴寨子中；<br>
+                          熊熊篝火映亮了天空；<br>
+                          阵阵歌声回荡在山谷；<br>
+                        ……</p>
+                    </li>
+                    <li class="p1">
+                        <h2>【运作篇】</h2>
+                        <p>抱歉，稍等一下，司机师傅马上就到；<br>
+                          对不起，房间还在打扫，暂时不能入住；<br>
+                          不好意思，今天调不出大床房，只能住标间；<br>
+                          这样的场景，熟悉吗？<br>
+                        ……</p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="prev">
+                  <a href="javascript:;" class="btn"></a>
+                </div>
+                <div class="next">
+                  <a href="javascript:;" class="btn"></a>
+                </div>
               
-            </div>
-            <div id="tab2">
-              团木童汉统确简害据汉力沙觉队简！礼点独。
-            </div>
-            <div id="tab3">
-              关标型贝礼吸幸板幸背姆凡江何冰。顶东败！
+                
+              </div>
+          </div>
+        <div id="page6" class="swiper-slide"">
+           <div class="text-box">
+             <h1 >远离喧嚣，不与旅游团队为伍</h1> 
+             <div>
+               <div class="text-left">
+               <p>曾几何时，</p> <p>旅游团队，这四个字频繁的聚焦在媒体中，</p> <p>泰国、日本、美国、欧洲……</p> <p>只要有旅游团队的地方就有新闻。</p> <p>喧嚣、吵闹、争抢、不守规矩……</p> <p>仿佛已经成为了旅游团队的标识。</p> <p>对于这种新闻，我不敢苟同，</p> <p>甚至认为，这并不能代表所有。</p> <p>但我的旅行，</p> <p>还是不想与旅游团队同行，</p> <p>就算我为家庭成员做出的一种“自私”决策吧。</p></div>
+             <div class="text-right">
+               <p>为此，族印做到，</p> <p>酒店，不与旅游团队同住；</p> <p>餐厅，不与旅游团队同吃；</p> <p>即使景区没有办法搞特殊，</p> <p>还是尽其所能安排不一样的游玩路线；</p> <p>甚至在带团服务上，</p> <p>我们都不敢用导游，</p> <p>只为给你不一样的旅行。</p> <br> <p>定制，因此不同，</p> <p>小包，方显尊贵，</p> <p>安静，我的旅行只有我，</p> <p>远离喧嚣，不与旅游团队为伍！</p>
+              </div>
             </div>
           </div>
+        </div>
+        
+        <div class="swiper-slide" style="background:yellow;">slider3</div>
+        <div class="swiper-slide" style="background:yellow;">slider3</div>
+        <div class="swiper-slide" style="background:yellow;">slider3</div>
       </div>
-      <div id="r-section">
-        <div id="userInfo">
-
-          <div class="beforeLogin">
-            <div class="title">创建一个账号</div>
-            <div class="desp">
-              <h3>成为社区的一员</h3>
-              <p>提出需求,给出想法,获得积分并投票表达你的意见!</p>
-              <a href="#register" class="register">注册</a>
-              <a href="#login" class="login">登录</a>
-            </div>
-          </div>
-          <div class="afterLogin"></div>
-        </div>
-
-        <div id="voteBoard" class="clear">
-          <div class="title">投票积分排名</div>
-          <div class="banner">
-            <p class="fl">用户名</p>
-            <p class="fr">积分</p>
-          </div>
-          <ul class="board">
-            <li>
-              <i>01</i>
-              <p class="name">小红</p>
-              <p class="points fr">786</p>
-            </li>
-            <li>
-              <i>02</i>
-              <p class="name">小红</p>
-              <p class="points fr">786</p>
-            </li>
-            <li>
-              <i>03</i>
-              <p class="name">小红</p>
-              <p class="points fr">786</p>
-            </li>
-            
-          </ul>
-        </div>
+      <div class="swiper-pagination">
+          <span></span>
       </div>
     </div>
-    
-  </section>
-</body>
+
+	<script src="js/jquery-1.10.1.min.js"></script>
+	<script src="js/swiper-3.4.2.min.js"></script>
+	<script src="js/index.js"></script>
+
+  </body>
 </html>
+
+
