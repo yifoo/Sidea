@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --colors --config config/webpack.dev.js",
     "build": "webpack --progress --colors --config config/webpack.prod.js",
-    "server": "node config/server.js",
+    "server": "node config/webpack.nodeServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
