@@ -1,0 +1,11 @@
+.DS_Store
+.idea
+.git
+*.log
+node_modules/
+dist/
+logs/
+htmlDemo/
+snapshotDemo/
+libs/backup/
+设计/

@@ -1,0 +1,395 @@
+@import './base.less';
+/*头部样式*/
+.header{
+  height:4rem;
+  width:100%;
+  background-color:@bg-login;
+  align-items: center;
+  display:flex;
+  justify-content: space-between;
+}
+/*logo样式*/
+.logo{
+  width: 6rem;
+  height: 2.5rem;
+  margin-left: 1rem;
+  background: url(../img/logo.png) center no-repeat;
+  background-size: contain;
+}
+/*搜索框样式*/
+.head-middle{
+  width: 40%;
+  position: relative;
+}
+.head-middle .sort ul{
+  position: absolute;
+  height: 2.2rem;
+  line-height: 2.2rem;
+  left: -8rem;
+}
+.head-middle .sort li{
+  float:left;
+  color:@c-white;
+  width:4rem;
+  color:@light-gray;
+  cursor: pointer;
+}
+.head-middle .sort li.active{
+  color:@c-white;
+}
+.head-middle input{
+  width: 100%;
+  height: 2.2rem;
+  padding: 1rem .5rem;
+  box-sizing: border-box;
+  border-radius: .3rem;
+  border: 0;
+  font-size: 1rem;
+  outline-color:transparent; 
+  background-color:@light-black 
+}
+.head-middle button{
+  position: absolute;
+  top: 50%;
+  margin-top: -1.1rem;
+  right: -4rem;
+  border-radius: .3rem;
+  border: 0;
+  width: auto;
+  padding:0 .5rem;
+  height: 2.2rem;
+  outline:none;
+  background-color:@deep-red;
+  color:@bg-color
+}
+.head-middle button:hover{
+  background-color:@most-red;
+  color:@c-white
+}
+.head-middle button:active{
+  background-color:@most-red;
+  color:@c-white
+}
+.icon-search{
+  position: absolute;
+  font-size:1.5rem;
+  padding-left: .5rem;
+  top: 50%;
+  margin-top: -.75rem;
+  right: .5rem;
+  border-left: 2px solid @bg-login ;
+  cursor: pointer;
+}
+/*登录和菜单框*/
+.r-box{
+  width:10%;
+}
+.loginbox ul>li{
+  float:left;
+  width:auto;
+  color:@c-white;
+  text-align: center;
+  cursor: pointer;
+}
+.loginbox ul>li:first-child{
+  text-align: right
+}
+.loginbox ul>li:nth-child(2){
+  width:15%;
+  cursor:default;
+}
+.loginbox ul>li:nth-child(3){
+  text-align: left
+}
+.icon-menu{
+  font-size:3rem;
+  padding-left:2%;
+  color:@deep-red;
+}
+@media screen and(max-width: 768px){
+  .loginbox{
+    display:none
+  }
+  .logo{
+    width:2rem;
+    background: url(../img/s.png)center center no-repeat;
+    background-size: contain;
+  }
+  .head-middle{
+    width:55%;
+  }
+  .head-middle .sort{
+    display: none;
+  }
+}
+@media screen and(min-width: 768px){
+  .icon-menu{
+    display:none;
+  }
+}
+
+/*section 主题样式*/
+.section{
+  width:100%;
+}
+#menu{
+  width:100%;
+  height:2.5rem;
+  background:@c-white;
+  margin-bottom:.5rem;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+#menu ul>li{
+  float:left;
+  background-color:@deep-red;
+  color:@light-gray;
+  height: 1.5rem;
+  line-height:1.5rem;
+  padding:.2rem 1rem;
+  border-radius: 1rem;
+  margin:0 1rem;
+  cursor: pointer;
+}
+#menu ul>li:hover{
+  background-color:@most-red;
+  color:@c-white;
+}
+#menu ul>li.active{
+  background-color:@c-red;
+  color:@c-white;
+}
+#main{
+  margin:0 7rem;
+  display:flex;
+  justify-content: center;
+}
+#l-section{
+  width:70%;
+}
+#r-section{
+  width:18rem;
+  margin-left:.5rem;
+}
+#tabs{
+  padding:0 1rem;
+  height:3rem;
+  position: relative;
+  background: @c-white;
+}
+#tabs .l-tabs{
+  position: absolute;
+  top:50%;
+  margin-top:-1rem;
+  width: 20%;
+}
+#tabs .l-tabs li{
+  float: left;
+  font-size: 1.5rem;
+  padding:0 .25rem;
+  color: darkslategray;
+  border: 1px solid @bg-color;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+#tabs .l-tabs li:first-child{
+  border-right:0;
+}
+#tabs .l-tabs li.active,#tabs .l-tabs li:hover{
+  box-shadow:inset 1px 1px 4px rgba(0,0,0,.16);
+}
+#tabs .r-tabs{
+  width:50%;
+  height:3rem;
+  float:right;
+  display:flex;
+  justify-content: space-around;
+  line-height: 3rem;
+  font-size: 1rem;
+}
+#tabs .r-tabs .item{
+  width:30%;
+  text-align: center;
+  cursor: pointer;
+}
+#tabs .r-tabs .item a{
+  position: relative;
+  z-index:2;
+}
+.r-tabs .item.active,.r-tabs .item:hover{
+  border-bottom:.2rem solid @deep-red;
+}
+.r-tabs .item.active a,.r-tabs .item:hover a{
+  color:@deep-red;
+}
+@media screen and (max-width: 1024px){
+  #main{
+    margin:0 .5rem;
+  }
+}
+@media screen and (max-width:992px){
+  #menu,#tabs,#r-section{
+    display:none;
+  }
+  #l-section{
+    width:100%;
+  }
+}
+.tab-container{
+  margin:.25rem -0.25rem; /*弥补后面padding造成的间距*/
+  position: relative;
+  background: @c-white;
+  .content-box{
+    float: left;
+    padding:.25rem;
+    width:50%;
+    box-sizing: border-box
+  }
+  .content{
+    padding: .5rem;
+    background:@c-white;
+    .main-content{
+      cursor: pointer;
+      .title{
+        font-size:15px;
+        margin-bottom: .5rem;
+      }
+    }
+  .main-content p{
+    width:75%;
+    min-height:4rem;
+    display: inline-block;
+  }
+  .main-content>div{
+    float: right;
+    width:25%;
+    max-height:4rem;
+    text-align: center
+  }
+  .main-content img{
+    max-height: 4.5rem;
+    max-width: 4.5rem;
+  }
+  .foot-content{
+    margin-top:.5rem;
+    span{
+      display: inline-block;
+      background-color: @bg-color;
+      padding:0px 3px;
+      a{
+        font-size:10px;
+        margin-left:-5px
+      }
+    }
+  }
+}
+  .content:hover{
+    .foot-content span{
+      background-color: @deep-red;
+      a{
+        color:@c-white;
+      }
+    }
+  }
+}
+.tab-container>div{
+  position:absolute;
+  width:100%;
+  height:20rem;
+  opacity: 0;
+  transition: all .2s linear;
+}
+.tab-container>div.active{
+  opacity: 1;
+  z-index:2;
+}
+@media screen and(max-width: 768px){
+  .tab-container .content-box{
+    width:100%;
+  }
+}
+.icon-bulb{
+  font-size:14px
+}
+
+/*登录信息框*/
+
+#userInfo{
+  background: @c-white;
+  .beforeLogin{
+    .title{
+      height:2rem;
+      line-height:2rem;
+      border-bottom: 1px solid @bg-color;
+      text-align: center;
+    }
+    .desp{
+      padding:.5rem;
+      line-height:1.5rem;
+    }
+    .register,.login{
+      display:inline-block;
+      padding:.25rem 1rem;
+      border:1px solid @bg-color;
+      background-color:rgb(238, 237, 237);
+    }
+    .register:hover,.login:hover{
+      background:@bg-color
+    }
+  }
+}
+
+#voteBoard{
+  margin:.5rem 0;
+  padding-bottom:1rem;
+  background: @c-white;
+  .title{
+    height:2rem;
+    line-height:2rem;
+    border-bottom: 1px solid @bg-color;
+    text-align: center;   
+  }
+  .banner{
+    width:100%;
+    height:1.5rem;
+    line-height: 1.5rem;
+    background: linear-gradient(to right,#4C4A4A, #BA3939);
+    color:@c-white;
+    padding:0 2rem;
+    box-sizing:border-box
+  }
+  .board{
+    margin-top:.5rem;
+    padding:0 1rem;
+    box-sizing:border-box
+  }
+  .board li{
+    width:100%;
+    height:2rem;
+    line-height: 2rem;
+    margin-top:.25rem;
+    color:rgb(88, 85, 85);
+    border:2px solid #E6E6E6;
+  }
+  i{
+    display:inline-block;
+    width:2rem;
+    height:2rem;
+    text-align:center;
+    font-style:normal;
+    background:#E6E6E6;
+  }
+  .name{
+    display:inline-block;
+    height:1.5rem;
+    line-height: 1.5rem;
+    padding-left:2rem;
+    margin-left: .25rem;
+    background:url(../img/s.png) left no-repeat;
+    background-size:contain;
+  }
+  .points{
+    padding-right:1rem;
+  }
+}
