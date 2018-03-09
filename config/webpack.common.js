@@ -10,9 +10,10 @@ module.exports = {
   },
   resolve: {
     alias: {  //别名,引入jQuery之后起的别名
-      jquery: path.resolve(__dirname,'../libs/jquery-3.2.1.js'),
+      // jquery: path.resolve(__dirname,'../libs/jquery-3.2.1.js'),
     }
   },
+  devtool: 'inline-source-map',//追踪错误和警告
   plugins: [
     new CleanWebpackPlugin(
       ['*.js','*.map','*.png','*.css','*.html'],　 //匹配删除的文件,若为*则全部删除
@@ -30,12 +31,12 @@ module.exports = {
       template: './index.html',
       chunks:['detail','index']
     }),
-    new webpack.ProvidePlugin({     //自动生成全局变量,一旦引用,就会打包
-      $:"jquery",
-      jQuery:"jquery",
-      'window.jQuery':"jquery",
-      'window.$':"jquery",
-    }),
+    // new webpack.ProvidePlugin({     //自动生成全局变量,一旦引用,就会打包
+    //   $:"jquery",
+    //   jQuery:"jquery",
+    //   'window.jQuery':"jquery",
+    //   'window.$':"jquery",
+    // }),
   ],
   module: {
     rules: [

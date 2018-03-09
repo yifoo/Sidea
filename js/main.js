@@ -1,7 +1,7 @@
 import "../css/main.less";
 import utils from './utils';
 /**
- * 切换:最新/趋势/热门
+ * 切换菜单Tab:最新/趋势/热门
  */
 (()=>{
   var elem=document.getElementsByClassName("r-tabs")[0];
@@ -40,11 +40,13 @@ import utils from './utils';
  * 渲染idea
  */
 (()=>{
-  $.ajax({
-    url:"/req/idea",
-    methods:"get",
-    success:function(data){
-      var html="";
+  var ajax=utils.getXhr();
+  ajax.open('get','/req/idea',true)
+  ajax.onreadystatechange=function(){
+    var html="";
+    if(ajax.readyState==4&&ajax.status==200){
+      var data=JSON.parse(ajax.response);
+    console.log(data);
       for(var i=0;i<data.length;i++){
         html+=`
         <div class="content-box">
@@ -69,7 +71,8 @@ import utils from './utils';
         </div>
         `
       }
-      $("#tab1").append(html);
+      document.getElementById("tab1").appendChild(html);
     }
-  })
+  }
+  ajax.send(null);	
 })()
