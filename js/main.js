@@ -71,7 +71,7 @@ import utils from './utils';
         </div>
         `
       }
-      document.getElementById("tab1").appendChild(html);
+      document.getElementById("tab1").innerHTML=html;
     }
   }
   ajax.send(null);	
