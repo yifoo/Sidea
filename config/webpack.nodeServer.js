@@ -12,6 +12,7 @@ const compiler = webpack(config);
 //告诉express去使用webpack-dev-middleware和webpack.config.js
 // 配置一个基础文件
 app.use(webpackDevMiddleware(compiler, {
+  noInfo:true,
   publicPath: config.output.publicPath
 }));
 let server = http.createServer(app);

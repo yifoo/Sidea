@@ -20,55 +20,55 @@
 .head-middle{
   width: 40%;
   position: relative;
-}
-.head-middle .sort ul{
-  position: absolute;
-  height: 2.2rem;
-  line-height: 2.2rem;
-  left: -8rem;
-}
-.head-middle .sort li{
-  float:left;
-  color:@c-white;
-  width:4rem;
-  color:@light-gray;
-  cursor: pointer;
-}
-.head-middle .sort li.active{
-  color:@c-white;
-}
-.head-middle input{
-  width: 100%;
-  height: 2.2rem;
-  padding: 1rem .5rem;
-  box-sizing: border-box;
-  border-radius: .3rem;
-  border: 0;
-  font-size: 1rem;
-  outline-color:transparent; 
-  background-color:@light-black 
-}
-.head-middle button{
-  position: absolute;
-  top: 50%;
-  margin-top: -1.1rem;
-  right: -4rem;
-  border-radius: .3rem;
-  border: 0;
-  width: auto;
-  padding:0 .5rem;
-  height: 2.2rem;
-  outline:none;
-  background-color:@deep-red;
-  color:@bg-color
-}
-.head-middle button:hover{
-  background-color:@most-red;
-  color:@c-white
-}
-.head-middle button:active{
-  background-color:@most-red;
-  color:@c-white
+  .sort ul{
+    position: absolute;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    left: -8rem;
+  }
+  .sort li{
+    float:left;
+    color:@c-white;
+    width:4rem;
+    color:@light-gray;
+    cursor: pointer;
+  }
+  .sort li.active{
+    color:@c-white;
+  }
+  input{
+    width: 100%;
+    height: 2.2rem;
+    padding: 1rem .5rem;
+    box-sizing: border-box;
+    border-radius: .3rem;
+    border: 0;
+    font-size: 1rem;
+    outline-color:transparent; 
+    background-color:@light-black 
+  }
+  button{
+    position: absolute;
+    top: 50%;
+    margin-top: -1.1rem;
+    right: -4rem;
+    border-radius: .3rem;
+    border: 0;
+    width: auto;
+    padding:0 .5rem;
+    height: 2.2rem;
+    outline:none;
+    background-color:@deep-red;
+    color:@bg-color
+  }
+  button:hover{
+    background-color:@most-red;
+    color:@c-white
+  }
+  button:active{
+    background-color:@most-red;
+    color:@c-white
+  }
 }
 .icon-search{
   position: absolute;
@@ -84,23 +84,25 @@
 .r-box{
   width:10%;
 }
-.loginbox ul>li{
-  float:left;
-  width:auto;
-  color:@c-white;
-  text-align: center;
-  cursor: pointer;
-}
-.loginbox ul>li:first-child{
-  text-align: right
-}
-.loginbox ul>li:nth-child(2){
-  width:15%;
-  cursor:default;
-}
-.loginbox ul>li:nth-child(3){
-  text-align: left
-}
+.loginbox{
+  ul>li{
+    float:left;
+    width:auto;
+    color:@c-white;
+    text-align: center;
+    cursor: pointer;
+  }
+  ul>li:first-child{
+    text-align: right
+  }
+  ul>li:nth-child(2){
+    width:15%;
+    cursor:default;
+  }
+  ul>li:nth-child(3){
+    text-align: left
+  }
+} 
 .icon-menu{
   font-size:3rem;
   padding-left:2%;
@@ -140,25 +142,25 @@
   display:flex;
   align-items: center;
   justify-content: center;
-}
-#menu ul>li{
-  float:left;
-  background-color:@deep-red;
-  color:@light-gray;
-  height: 1.5rem;
-  line-height:1.5rem;
-  padding:.2rem 1rem;
-  border-radius: 1rem;
-  margin:0 1rem;
-  cursor: pointer;
-}
-#menu ul>li:hover{
-  background-color:@most-red;
-  color:@c-white;
-}
-#menu ul>li.active{
-  background-color:@c-red;
-  color:@c-white;
+  ul>li{
+    float:left;
+    background-color:@deep-red;
+    color:@light-gray;
+    height: 1.5rem;
+    line-height:1.5rem;
+    padding:.2rem 1rem;
+    border-radius: 1rem;
+    margin:0 1rem;
+    cursor: pointer;
+  }
+  ul>li:hover{
+    background-color:@most-red;
+    color:@c-white;
+  }
+  ul>li.active{
+    background-color:@c-red;
+    color:@c-white;
+  }
 }
 #main{
   margin:0 7rem;
@@ -177,51 +179,51 @@
   height:3rem;
   position: relative;
   background: @c-white;
-}
-#tabs .l-tabs{
-  position: absolute;
-  top:50%;
-  margin-top:-1rem;
-  width: 20%;
-}
-#tabs .l-tabs li{
-  float: left;
-  font-size: 1.5rem;
-  padding:0 .25rem;
-  color: darkslategray;
-  border: 1px solid @bg-color;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-#tabs .l-tabs li:first-child{
-  border-right:0;
-}
-#tabs .l-tabs li.active,#tabs .l-tabs li:hover{
-  box-shadow:inset 1px 1px 4px rgba(0,0,0,.16);
-}
-#tabs .r-tabs{
-  width:50%;
-  height:3rem;
-  float:right;
-  display:flex;
-  justify-content: space-around;
-  line-height: 3rem;
-  font-size: 1rem;
-}
-#tabs .r-tabs .item{
-  width:30%;
-  text-align: center;
-  cursor: pointer;
-}
-#tabs .r-tabs .item a{
-  position: relative;
-  z-index:2;
-}
-.r-tabs .item.active,.r-tabs .item:hover{
-  border-bottom:.2rem solid @deep-red;
-}
-.r-tabs .item.active a,.r-tabs .item:hover a{
-  color:@deep-red;
+  .l-tabs{
+    position: absolute;
+    top:50%;
+    margin-top:-1rem;
+    width: 20%;
+  }
+  .l-tabs li{
+    float: left;
+    font-size: 1.5rem;
+    padding:0 .25rem;
+    color: darkslategray;
+    border: 1px solid @bg-color;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  .l-tabs li:first-child{
+    border-right:0;
+  }
+  .l-tabs li.active,#tabs .l-tabs li:hover{
+    box-shadow:inset 1px 1px 4px rgba(0,0,0,.16);
+  }
+  .r-tabs{
+    width:50%;
+    height:3rem;
+    float:right;
+    display:flex;
+    justify-content: space-around;
+    line-height: 3rem;
+    font-size: 1rem;
+    .item{
+      width:30%;
+      text-align: center;
+      cursor: pointer;
+      a{
+        position: relative;
+        z-index:2;
+      }
+    }
+    .item.active,.r-tabs .item:hover{
+      border-bottom:.2rem solid @deep-red;
+    }
+    .item.active a,.r-tabs .item:hover a{
+      color:@deep-red;
+    }
+  }
 }
 @media screen and (max-width: 1024px){
   #main{
@@ -237,14 +239,21 @@
   }
 }
 .tab-container{
-  margin:.25rem -0.25rem; /*弥补后面padding造成的间距*/
+  margin:.25rem 0; 
   position: relative;
   background: @c-white;
+  height:2000px;
+  // #tab1{
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   flex-direction: column;
+  //   height: 1000px;
+  // }
   .content-box{
-    float: left;
+    position:absolute;
     padding:.25rem;
     width:50%;
-    box-sizing: border-box
+    box-sizing: border-box;
   }
   .content{
     padding: .5rem;

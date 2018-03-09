@@ -13,7 +13,7 @@ module.exports = {
       // jquery: path.resolve(__dirname,'../libs/jquery-3.2.1.js'),
     }
   },
-  devtool: 'inline-source-map',//追踪错误和警告
+  devtool: 'inline-source-map',//开发模式下追踪错误和警告
   plugins: [
     new CleanWebpackPlugin(
       ['*.js','*.map','*.png','*.css','*.html'],　 //匹配删除的文件,若为*则全部删除
@@ -37,6 +37,9 @@ module.exports = {
     //   'window.jQuery':"jquery",
     //   'window.$':"jquery",
     // }),
+    new webpack.HotModuleReplacementPlugin(),//热替换
+    // Use NoErrorsPlugin for webpack 1.x
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
     rules: [
