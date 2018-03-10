@@ -28,4 +28,4 @@
    > - 将dist文件夹整体拷贝到服务器根目录下;
    > - 启动本地服务器,记下服务器端口,找到`config`目录下`nodeServer.js`,添加允许访问域名和端口;
    > - 运行`npm run nodeServer`
-   > - 打开localhost或127.0.01即可预览
+   > - 打开`localhost`或`127.0.0.1`即可预览
