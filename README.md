@@ -29,3 +29,44 @@
    > - 启动本地服务器,记下服务器端口,找到`config`目录下`nodeServer.js`,添加允许访问域名和端口;
    > - 运行`npm run nodeServer`
    > - 打开`localhost`或`127.0.0.1`即可预览
+
+当前项目结构:
+```JavaScript
+│  index.html
+│  package-lock.json
+│  package.json
+│  postcss.config.js
+│  README.md  
+├─config
+│      nodeServer.js
+│      webpack.common.js
+│      webpack.dev.js
+│      webpack.nodeServer.js
+│      webpack.prod.js     
+├─dist
+├─node_modules               
+├─src
+│  ├─css
+│  │      base.less
+│  │      main.less
+│  │      normalize.css
+│  ├─data
+│  │  │  pool.js
+│  │  │  sidea.sql
+│  │  └─router
+│  │          req_idea.js
+│  ├─img
+│  │      fa.ico
+│  │      favicon.ico
+│  │      favicon16.ico
+│  │      logo.png
+│  │      s.png
+│  │      search.png
+│  ├─js
+│  │      detail.js
+│  │      index.js
+│  │      main.js
+│  │      utils.js
+│  └─page
+│          detail.html
+```
