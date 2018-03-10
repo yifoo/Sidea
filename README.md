@@ -57,12 +57,9 @@
 │  │  └─router
 │  │          req_idea.js
 │  ├─img
-│  │      fa.ico
 │  │      favicon.ico
-│  │      favicon16.ico
 │  │      logo.png
 │  │      s.png
-│  │      search.png
 │  ├─js
 │  │      detail.js
 │  │      index.js
