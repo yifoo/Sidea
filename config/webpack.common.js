@@ -10,7 +10,7 @@ module.exports = {
     detail: path.resolve(__dirname,'../src/js/detail.js'),
   },
   output: {   //打包输出配置路径
-    filename: './js/[name].bundle.js',
+    filename: 'js/[name].bundle.js',
     path: path.resolve(__dirname, '../dist'),
     publicPath: '' //上线的绝对地址  可以为http://www.haohome.top/
   },  
@@ -31,7 +31,7 @@ module.exports = {
       favicon: './src/img/favicon.ico',
       filename: 'index.html',
       template: './index.html',
-      chunks:['main','index']
+      chunks:['main','index'],
     }),
     new HtmlWebpackPlugin({  //指定模板输出
       favicon: './src/img/favicon.ico',
@@ -40,9 +40,9 @@ module.exports = {
       chunks:['detail','index']
     }),
     new ExtractTextPlugin({
-      filename: "./css/[name].bundle.css",
+      filename: "css/[name].bundle.css",
       disable: false,
-      allChunks: true
+      allChunks: true,
     }),
     // new webpack.ProvidePlugin({     //自动生成全局变量,一旦引用,就会打包
     //   $:"jquery",
@@ -78,7 +78,11 @@ module.exports = {
       {test: /\.(ico|png|jpg|gif)$/,use: [
         {
           loader: 'file-loader',
-          options: {name:'./img/[name].bundle.[ext]'}
+          options: {
+            name:'[name].bundle.[ext]',
+            outputPath: 'img/',
+            publicPath:'../'
+          }
         }
       ]}
     ]

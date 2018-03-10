@@ -7,6 +7,7 @@
     "dev": "webpack-dev-server --inline --progress --colors --config config/webpack.dev.js",
     "build": "webpack --progress --colors --config config/webpack.prod.js",
     "server": "node config/webpack.nodeServer.js",
+    "nodeServer": "node config/nodeServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -46,6 +47,7 @@
   },
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "express": "^4.16.2",
     "mysql": "^2.15.0"
   }

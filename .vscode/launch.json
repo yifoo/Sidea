@@ -1,7 +1,12 @@
 {
   "version": "0.2.0",
   "configurations": [
-
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "server",
+      "program": "${workspaceFolder}\\config\\nodeServer.js"
+    },
     {
       "type": "node",
       "request": "launch",
@@ -12,8 +17,15 @@
       "type": "node",
       "request": "launch",
       "name": "打包",
-      "program": "${workspaceFolder}\\config\\webpack.prod.js"
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run-script",
+        "build"
+      ],
+      "port": 9229
     }
+    
+    
   ],
   "compounds": []
 }

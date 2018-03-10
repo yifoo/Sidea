@@ -1,8 +1,8 @@
 /*
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
- * @Last Modified by: Daniel 
- * @Last Modified time: 2018-03-10 14:08:42
+ * @Last Modified by: Daniel
+ * @Last Modified time: 2018-03-10 17:26:15
  * @description:首页js 
  */
 
@@ -49,7 +49,7 @@ import utils from './utils';
  */
 (()=>{
   var ajax=utils.getXhr();
-  ajax.open('get','/req/idea',true)
+  ajax.open('get','http://127.0.0.1:3000/req/idea',true)
   ajax.onreadystatechange=function(){
     var html="";
     if(ajax.readyState==4&&ajax.status==200){
