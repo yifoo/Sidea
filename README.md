@@ -8,12 +8,15 @@
 
 #### 使用方法
 1. 克隆
+
     `git clone git@github.com:haohome/Sidea.git`
 
 2. 安装依赖
+
     运行命令`npm install`
 
 3. 导入数据库
+
     在本地`localhost`的`phpAdmin`中运行`src/data` 中`sidea.sql` 文件,自动创建数据库和导入数据
 
 4. 运行

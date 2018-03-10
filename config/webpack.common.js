@@ -8,6 +8,12 @@ module.exports = {
     index: path.resolve(__dirname,'../src/js/index.js'),
     main: path.resolve(__dirname,'../src/js/main.js'),
     detail: path.resolve(__dirname,'../src/js/detail.js'),
+    about: path.resolve(__dirname,'../src/js/about.js'),
+    login: path.resolve(__dirname,'../src/js/login.js'),
+    register: path.resolve(__dirname,'../src/js/register.js'),
+    reqIdea: path.resolve(__dirname,'../src/js/reqIdea.js'),
+    about: path.resolve(__dirname,'../src/js/about.js'),
+    userCenter: path.resolve(__dirname,'../src/js/userCenter.js'),
   },
   output: {   //打包输出配置路径
     filename: 'js/[name].bundle.js',
@@ -21,24 +27,73 @@ module.exports = {
   },
   devtool: 'inline-source-map',//开发模式下追踪错误和警告
   plugins: [
+    /*清理文件夹*/
     new CleanWebpackPlugin(
+      // ['dist'],
       ['*.js','*.map','*.png','*.css','*.html','*.ico','css','js','img'],　 //匹配删除的文件,若为*则全部删除
       {
         root: path.resolve(__dirname,'../dist'),
         verbose:  true,        　　　　　　　　　　//开启在控制台输出信息
-      }),//清理文件夹
-    new HtmlWebpackPlugin({  //指定模板输出
+      }),
+    /**
+     * 指定模板输出
+     */
+    /*首页 */
+    new HtmlWebpackPlugin({ 
       favicon: './src/img/favicon.ico',
       filename: 'index.html',
       template: './index.html',
-      chunks:['main','index'],
+      chunks:['main','index'], 
     }),
-    new HtmlWebpackPlugin({  //指定模板输出
+    /*详情 */
+    new HtmlWebpackPlugin({  
+      title:'详情',
       favicon: './src/img/favicon.ico',
       filename: 'detail.html',
       template: './src/page/detail.html',
       chunks:['detail','index']
     }),
+    /*用户中心 */
+    new HtmlWebpackPlugin({
+      title:'用户中心',
+      favicon: './src/img/favicon.ico',
+      filename: 'userCenter.html',
+      template: './src/page/userCenter.html',
+      chunks:['userCenter','index']
+    }),
+    /*点子请求 */
+    new HtmlWebpackPlugin({
+      title:'点子请求',
+      favicon: './src/img/favicon.ico',
+      filename: 'reqIdea.html',
+      template: './src/page/reqIdea.html',
+      chunks:['reqIdea','index']
+    }),
+    /*关于 */
+    new HtmlWebpackPlugin({
+      title:'关于',
+      favicon: './src/img/favicon.ico',
+      filename: 'about.html',
+      template: './src/page/about.html',
+      chunks:['about','index']
+    }),
+    /*登录 */
+    new HtmlWebpackPlugin({
+      title:'登录',
+      favicon: './src/img/favicon.ico',
+      filename: 'login.html',
+      template: './src/page/login.html',
+      chunks:['login','index']
+    }),
+     /*注册 */
+     new HtmlWebpackPlugin({
+      title:'注册',
+      favicon: './src/img/favicon.ico',
+      filename: 'register.html',
+      template: './src/page/register.html',
+      chunks:['register','index']
+    }),
+    /*单独使用link标签加载css并设置路径，相对于output配置中的publickPath*/
     new ExtractTextPlugin({
       filename: "css/[name].bundle.css",
       disable: false,
