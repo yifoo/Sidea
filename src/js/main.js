@@ -2,11 +2,12 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-10 21:04:31
+ * @Last Modified time: 2018-03-10 21:16:11
  * @description:首页js 
  */
 
 import "../css/main.less";
+import utils from '../common/utils';
 /**
  * 切换菜单Tab:最新/趋势/热门
  */
