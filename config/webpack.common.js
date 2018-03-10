@@ -99,7 +99,7 @@ module.exports = {
       disable: false,
       allChunks: true,
     }),
-    // new webpack.ProvidePlugin({     //自动生成全局变量,一旦引用,就会打包
+    // new webpack.ProvidePlugin({     //自动生成全局变量,会自动打包
     //   $:"jquery",
     //   jQuery:"jquery",
     //   'window.jQuery':"jquery",
