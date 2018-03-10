@@ -27,9 +27,9 @@
 
    > - 先运行`npm run build`,生成的项目文件在`dist`文件夹下;
    > - 将dist文件夹整体拷贝到服务器根目录下;
-   > - 启动本地服务器,记下服务器端口(不能为3000),找到`config`目录下`nodeServer.js`,添加允许访问域名和端口;
+   > - 启动本地服务器;
    > - 运行`npm run nodeServer`
-   > - 打开`localhost`或`127.0.0.1`即可预览
+   > - 打开`http://localhost`或`http://127.0.0.1`即可预览
 
 当前项目结构:
 ```JavaScript
