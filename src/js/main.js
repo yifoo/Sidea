@@ -1,3 +1,11 @@
+/*
+ * @Author: Daniel Hfood 
+ * @Date: 2018-03-10 14:08:42 
+ * @Last Modified by: Daniel 
+ * @Last Modified time: 2018-03-10 14:08:42
+ * @description:首页js 
+ */
+
 import "../css/main.less";
 import utils from './utils';
 /**

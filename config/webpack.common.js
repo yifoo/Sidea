@@ -4,9 +4,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 module.exports = {
   entry: {
-    index: path.resolve(__dirname,'../js/index.js'),
-    main: path.resolve(__dirname,'../js/main.js'),
-    detail: path.resolve(__dirname,'../js/detail.js'),
+    index: path.resolve(__dirname,'../src/js/index.js'),
+    main: path.resolve(__dirname,'../src/js/main.js'),
+    detail: path.resolve(__dirname,'../src/js/detail.js'),
   },
   resolve: {
     alias: {  //别名,引入jQuery之后起的别名
@@ -22,13 +22,14 @@ module.exports = {
         verbose:  true,        　　　　　　　　　　//开启在控制台输出信息
       }),//清理文件夹
     new HtmlWebpackPlugin({  //指定模板输出
+      favicon: './src/img/favicon.ico',
       filename: 'index.html',
       template: './index.html',
       chunks:['main','index']
     }),
     new HtmlWebpackPlugin({  //指定模板输出
-      filename: 'detail.html',
-      template: './index.html',
+      filename: './src/page/detail.html',
+      template: './src/page/detail.html',
       chunks:['detail','index']
     }),
     // new webpack.ProvidePlugin({     //自动生成全局变量,一旦引用,就会打包

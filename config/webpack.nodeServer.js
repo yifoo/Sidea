@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const http=require("http");
 const bodyParser=require("body-parser");
-const routerReq = require('../data/router/req_idea');
+const routerReq = require('../src/data/router/req_idea');
 
 let app = express();
 const config = require('./webpack.common.js');

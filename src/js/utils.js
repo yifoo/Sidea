@@ -37,6 +37,9 @@ var utils ={
       }
     })
   },
+  /**
+   * 获取xhr对象
+   */
   getXhr:function(){
     var xhr;
     if(window.XMLHttpRequest){
