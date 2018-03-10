@@ -176,10 +176,10 @@
 }
 #tabs{
   padding:0 1rem;
-  margin:0 .25rem;
   height:3rem;
   position: relative;
   background: @c-white;
+  box-sizing: border-box;
   .l-tabs{
     position: absolute;
     top:50%;
@@ -243,9 +243,9 @@
   margin:.25rem 0; 
   position: relative;
   .content-box{
-    float: left;
-    padding:.25rem;
-    width:50%;
+    position: absolute;
+    // padding:.25rem;
+    width:49%;
     box-sizing: border-box;
   }
   .content{
