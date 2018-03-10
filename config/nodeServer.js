@@ -15,7 +15,7 @@ server.listen(3000, function () {
 });
 app.use( bodyParser.urlencoded({extended:false}) );
 app.use( cors({
-  origin: ['*'],//可配置允许域名和端口["http://127.0.0.1","http://127.0.0.1:3000","http://127.0.0.1:8080","http://127.0.0.1:5500"]
+  origin: ["http://127.0.0.1:8000","http://127.0.0.1:8080"],//可配置允许域名和端口["http://127.0.0.1","http://127.0.0.1:3000","http://127.0.0.1:8080","http://127.0.0.1:5500"]
   credentials: true
 }) );
 app.use('/req', routerReq);
