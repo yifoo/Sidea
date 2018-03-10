@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 module.exports = {
   entry: {
@@ -8,6 +9,11 @@ module.exports = {
     main: path.resolve(__dirname,'../src/js/main.js'),
     detail: path.resolve(__dirname,'../src/js/detail.js'),
   },
+  output: {   //打包输出配置路径
+    filename: './js/[name].bundle.js',
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: '' //上线的绝对地址  可以为http://www.haohome.top/
+  },  
   resolve: {
     alias: {  //别名,引入jQuery之后起的别名
       // jquery: path.resolve(__dirname,'../libs/jquery-3.2.1.js'),
@@ -16,7 +22,7 @@ module.exports = {
   devtool: 'inline-source-map',//开发模式下追踪错误和警告
   plugins: [
     new CleanWebpackPlugin(
-      ['*.js','*.map','*.png','*.css','*.html'],　 //匹配删除的文件,若为*则全部删除
+      ['*.js','*.map','*.png','*.css','*.html','*.ico','css','js','img'],　 //匹配删除的文件,若为*则全部删除
       {
         root: path.resolve(__dirname,'../dist'),
         verbose:  true,        　　　　　　　　　　//开启在控制台输出信息
@@ -28,9 +34,15 @@ module.exports = {
       chunks:['main','index']
     }),
     new HtmlWebpackPlugin({  //指定模板输出
-      filename: './src/page/detail.html',
+      favicon: './src/img/favicon.ico',
+      filename: 'detail.html',
       template: './src/page/detail.html',
       chunks:['detail','index']
+    }),
+    new ExtractTextPlugin({
+      filename: "./css/[name].bundle.css",
+      disable: false,
+      allChunks: true
     }),
     // new webpack.ProvidePlugin({     //自动生成全局变量,一旦引用,就会打包
     //   $:"jquery",
@@ -47,12 +59,12 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        use: ExtractTextPlugin.extract({fallback: "style-loader",use: "css-loader"})
       },
       {
         test: /\.less$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader?importLoaders=1',"postcss-loader",'less-loader']
+        use: ExtractTextPlugin.extract({fallback: "style-loader",use: "css-loader!postcss-loader!less-loader"})
       },
       { test: /\.js$/, 
         exclude: /(node_modules|bower_components)/,
@@ -66,14 +78,9 @@ module.exports = {
       {test: /\.(ico|png|jpg|gif)$/,use: [
         {
           loader: 'file-loader',
-          options: {}
+          options: {name:'./img/[name].bundle.[ext]'}
         }
       ]}
     ]
   }, 
-  output: {   //打包输出配置路径
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, '../dist'),
-    publicPath: '' //上线的绝对地址  可以为http://www.haohome.top/
-  },  
 };
