@@ -18,15 +18,16 @@
 
 4. 运行
 
-   4.1开发模式
+   4.1开发模式(两种)
 
-   直接运行命令`npn run server`
+   ①直接运行命令`npm run server`
+   ②也可先运行`npm run nodeServer`,再启动另一个控制面板运行`npm run dev`(推荐)
 
    4.2 生产模式
 
    > - 先运行`npm run build`,生成的项目文件在`dist`文件夹下;
    > - 将dist文件夹整体拷贝到服务器根目录下;
-   > - 启动本地服务器,记下服务器端口,找到`config`目录下`nodeServer.js`,添加允许访问域名和端口;
+   > - 启动本地服务器,记下服务器端口(不能为3000),找到`config`目录下`nodeServer.js`,添加允许访问域名和端口;
    > - 运行`npm run nodeServer`
    > - 打开`localhost`或`127.0.0.1`即可预览
 

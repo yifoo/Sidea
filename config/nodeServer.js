@@ -15,7 +15,7 @@ server.listen(3000, function () {
 });
 app.use( bodyParser.urlencoded({extended:false}) );
 app.use( cors({
-  origin: ["http://127.0.0.1:3000","http://127.0.0.1:5500"],
+  origin: ["http://127.0.0.1:3000","http://127.0.0.1:8080","http://127.0.0.1:5500"],
   credentials: true
 }) );
 app.use('/req', routerReq);
