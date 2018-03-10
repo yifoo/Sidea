@@ -130,7 +130,9 @@ module.exports = {
           }
         }
       },
-      {test: /\.(ico|png|jpg|gif)$/,use: [
+      {test: /\.(ico|png|jpg|gif)$/,
+        exclude: /node_modules/,
+        use: [
         {
           loader: 'file-loader',
           options: {
