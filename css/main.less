@@ -176,6 +176,7 @@
 }
 #tabs{
   padding:0 1rem;
+  margin:0 .25rem;
   height:3rem;
   position: relative;
   background: @c-white;
@@ -241,16 +242,8 @@
 .tab-container{
   margin:.25rem 0; 
   position: relative;
-  background: @c-white;
-  height:2000px;
-  // #tab1{
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   flex-direction: column;
-  //   height: 1000px;
-  // }
   .content-box{
-    position:absolute;
+    float: left;
     padding:.25rem;
     width:50%;
     box-sizing: border-box;
@@ -258,6 +251,8 @@
   .content{
     padding: .5rem;
     background:@c-white;
+    border: .5px solid transparent;
+    transition:all .1s linear;
     .main-content{
       cursor: pointer;
       .title{
@@ -294,6 +289,8 @@
   }
 }
   .content:hover{
+    border: .5px solid #ccc;
+    box-sizing: border-box;
     .foot-content span{
       background-color: @deep-red;
       a{

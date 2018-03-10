@@ -72,21 +72,7 @@ import utils from './utils';
         `
       }
       document.getElementById("tab1").innerHTML=html;
-      var contentBox=document.getElementsByClassName("content-box")
-      var top=0,
-      left=0;
-      for(var i=0;i<contentBox.length;i++){
-        console.log(contentBox[i]);
-        if(i%2==0){
-          left=397;
-          top+=contentBox[i].clientHeight;
-        }else{
-          left=0;
-        }
-        contentBox[i+2].style.top=(top+30)+'px';
-        contentBox[i+1].style.left=left+'px';
 
-      }
     }
   }
   ajax.send(null);	
