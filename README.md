@@ -24,6 +24,7 @@
    4.1开发模式(两种)
 
    ① 直接运行命令`npm run server`
+   
    ② 也可先运行`npm run nodeServer`,再启动另一个控制面板运行`npm run dev`(推荐)
 
    4.2 生产模式
