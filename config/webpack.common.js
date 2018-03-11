@@ -27,6 +27,11 @@ module.exports = {
   },
   devtool: 'inline-source-map',//开发模式下追踪错误和警告
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({ //提取公共模块代码,减小打包体积
+      name:'common', 
+      filename:'js/common.js',
+      // chunks:['main','index']
+    }),
     new webpack.ProvidePlugin({     //自动生成全局变量,会自动打包
     //   $:"jquery",
     //   jQuery:"jquery",
@@ -49,7 +54,7 @@ module.exports = {
       favicon: './src/img/favicon.ico',
       filename: 'index.html',
       template: './index.html',
-      chunks:['main','index'], 
+      chunks:['main','index','common'], 
     }),
     /*详情 */
     new HtmlWebpackPlugin({  
@@ -57,7 +62,7 @@ module.exports = {
       favicon: './src/img/favicon.ico',
       filename: 'detail.html',
       template: './src/page/detail.html',
-      chunks:['detail','index']
+      chunks:['detail','index','common']
     }),
     /*用户中心 */
     new HtmlWebpackPlugin({
