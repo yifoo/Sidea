@@ -27,6 +27,12 @@ module.exports = {
   },
   devtool: 'inline-source-map',//开发模式下追踪错误和警告
   plugins: [
+    new webpack.ProvidePlugin({     //自动生成全局变量,会自动打包
+    //   $:"jquery",
+    //   jQuery:"jquery",
+    //   'window.jQuery':"jquery",
+    //   'window.$':"jquery",
+    }),
     /*清理文件夹*/
     new CleanWebpackPlugin(
       // ['dist'],
@@ -99,12 +105,6 @@ module.exports = {
       disable: false,
       allChunks: true,
     }),
-    // new webpack.ProvidePlugin({     //自动生成全局变量,会自动打包
-    //   $:"jquery",
-    //   jQuery:"jquery",
-    //   'window.jQuery':"jquery",
-    //   'window.$':"jquery",
-    // }),
     new webpack.HotModuleReplacementPlugin(),//热替换
     // Use NoErrorsPlugin for webpack 1.x
     new webpack.NoEmitOnErrorsPlugin()
