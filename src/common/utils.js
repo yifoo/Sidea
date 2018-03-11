@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-11 20:17:13 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-11 20:17:36
+ * @Last Modified time: 2018-03-12 00:01:36
  * @name:公共方法库
  */
 
@@ -60,7 +60,7 @@ var utils ={
   /**
    * @name:瀑布流
    * @param:parent(容器元素)
-   * @param:oneGap(只有一列是元素的间距)
+   * @param:oneGap(只有一列时元素的间距,其他列数自适应)
    * @description:自适应瀑布流,多列间距自适应
    */
   waterFall:function (parent,oneGap){
