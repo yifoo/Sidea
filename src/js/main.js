@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-11 00:18:17
+ * @Last Modified time: 2018-03-11 16:13:27
  * @description:首页js 
  */
 
@@ -90,45 +90,9 @@ import utils from '../common/utils';
   window.onload=function(){
     var contentBox=document.getElementById("tab1");
     var items = contentBox.children;
-    console.log("items",items.length);
-    var gap = 5;
-    waterFall()
-    function waterFall(){
-      var width=contentBox.offsetWidth;
-      var itemWidth = items[0].offsetWidth;
-      var columns = parseInt(width / (itemWidth + gap));
-      var arr = [];
-      for (var i = 0; i < items.length; i++) {
-        if (i < columns) {
-            // 2- 确定第一行
-            items[i].style.top = 0;
-            items[i].style.left = (itemWidth + gap) * i + 'px';
-            arr.push(items[i].offsetHeight);
-        } else {
-            // 其他行
-            // 3- 找到数组中最小高度  和 它的索引
-            var minHeight = arr[0];
-            var index = 0;
-            for (var j = 0; j < arr.length; j++) {
-                if (minHeight > arr[j]) {
-                    minHeight = arr[j];
-                    index = j;
-                }
-            }
-            // 4- 设置下一行的第一个盒子位置
-            // top值就是最小列的高度 + gap
-            items[i].style.top = arr[index] + gap + 'px';
-            // left值就是最小列距离左边的距离
-            items[i].style.left = items[index].offsetLeft + 'px';
-  
-            // 5- 修改最小列的高度 
-            // 最小列的高度 = 当前自己的高度 + 拼接过来的高度 + 间隙的高度
-            arr[index] = arr[index] + items[i].offsetHeight + gap;
-          }
-        }
-    }
+    utils.waterFall(contentBox,5)
     window.onresize = function() {
-      waterFall();
+      utils.waterFall(contentBox,5)
     };
   }
   
