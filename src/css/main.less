@@ -175,11 +175,12 @@
   margin-left:.5rem;
 }
 #tabs{
+  width: 99.1%;
   padding:0 1rem;
-  margin:0 .25rem;
   height:3rem;
   position: relative;
   background: @c-white;
+  box-sizing: border-box;
   .l-tabs{
     position: absolute;
     top:50%;
@@ -226,7 +227,7 @@
     }
   }
 }
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1100px){
   #main{
     margin:0 .5rem;
   }
@@ -240,12 +241,16 @@
   }
 }
 .tab-container{
-  margin:.25rem 0; 
+  margin:.5rem 0; 
   position: relative;
+  width:100%;
+  #tab1{
+    width:100%;
+    height:100rem;
+  }
   .content-box{
-    float: left;
-    padding:.25rem;
-    width:50%;
+    position: absolute;
+    width:49%;
     box-sizing: border-box;
   }
   .content{
@@ -268,12 +273,12 @@
   .main-content>div{
     float: right;
     width:25%;
-    max-height:4rem;
     text-align: center
   }
   .main-content img{
-    max-height: 4.5rem;
-    max-width: 4.5rem;
+    width: 100%;
+    max-height: 5rem;
+    max-width: 6rem;
   }
   .foot-content{
     margin-top:.5rem;
@@ -310,7 +315,7 @@
   opacity: 1;
   z-index:2;
 }
-@media screen and(max-width: 768px){
+@media screen and(max-width: 650px){
   .tab-container .content-box{
     width:100%;
   }
