@@ -15,24 +15,28 @@ module.exports = {
     about: path.resolve(__dirname,'../src/js/about.js'),
     userCenter: path.resolve(__dirname,'../src/js/userCenter.js'),
   },
-  output: {   //打包输出配置路径
+  /**打包输出配置路径 */
+  output: {
     filename: 'js/[name].bundle.js',
     path: path.resolve(__dirname, '../dist'),
     publicPath: '' //上线的绝对地址  可以为http://www.haohome.top/
   },  
   resolve: {
-    alias: {  //别名,引入jQuery之后起的别名
+    /**别名,引入第三方库之后起的别名 */
+    alias: {
       // jquery: path.resolve(__dirname,'../libs/jquery-3.2.1.js'),
     }
   },
   devtool: 'inline-source-map',//开发模式下追踪错误和警告
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({ //提取公共模块代码,减小打包体积
-      name:'common', 
+    /**提取公共模块代码,减小打包体积 */
+    new webpack.optimize.CommonsChunkPlugin({
+      name:'common',   //若为['common', 'manifest'] ,打包common的hash值不会变化(common没有改变)
       filename:'js/common.js',
-      // chunks:['main','index']
+      // chunks:['main','index']  //指定提取范围
     }),
-    new webpack.ProvidePlugin({     //自动生成全局变量,会自动打包
+    /**自动生成全局变量,会自动打包 */
+    new webpack.ProvidePlugin({ 
     //   $:"jquery",
     //   jQuery:"jquery",
     //   'window.jQuery':"jquery",
@@ -46,17 +50,14 @@ module.exports = {
         root: path.resolve(__dirname,'../dist'),
         verbose:  true,        　　　　　　　　　　//开启在控制台输出信息
       }),
-    /**
-     * 指定模板输出
-     */
-    /*首页 */
+   /**指定模板输出 */
     new HtmlWebpackPlugin({ 
+      title:'首页',
       favicon: './src/img/favicon.ico',
       filename: 'index.html',
       template: './index.html',
       chunks:['main','index','common'], 
     }),
-    /*详情 */
     new HtmlWebpackPlugin({  
       title:'详情',
       favicon: './src/img/favicon.ico',
@@ -64,7 +65,6 @@ module.exports = {
       template: './src/page/detail.html',
       chunks:['detail','index','common']
     }),
-    /*用户中心 */
     new HtmlWebpackPlugin({
       title:'用户中心',
       favicon: './src/img/favicon.ico',
@@ -72,7 +72,6 @@ module.exports = {
       template: './src/page/userCenter.html',
       chunks:['userCenter','index']
     }),
-    /*点子请求 */
     new HtmlWebpackPlugin({
       title:'点子请求',
       favicon: './src/img/favicon.ico',
@@ -80,7 +79,6 @@ module.exports = {
       template: './src/page/reqIdea.html',
       chunks:['reqIdea','index']
     }),
-    /*关于 */
     new HtmlWebpackPlugin({
       title:'关于',
       favicon: './src/img/favicon.ico',
@@ -88,7 +86,6 @@ module.exports = {
       template: './src/page/about.html',
       chunks:['about','index']
     }),
-    /*登录 */
     new HtmlWebpackPlugin({
       title:'登录',
       favicon: './src/img/favicon.ico',
