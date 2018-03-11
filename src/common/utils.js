@@ -1,7 +1,7 @@
 var utils ={
   
   /**
-   * 改变根元素font-size
+   * @name:改变根元素font-size
    */
   changeRootSize: function(){
     var html=document.documentElement;  //根元素
@@ -38,7 +38,7 @@ var utils ={
     })
   },
   /**
-   * 获取xhr对象
+   * @name:获取xhr对象
    */
   getXhr:function(){
     var xhr;
@@ -64,7 +64,6 @@ var utils ={
     var gap=(width-parseInt(width / (itemWidth))*itemWidth)/2;
     /**计算每列放的盒子元素个数 */
     var columns = parseInt(width / (itemWidth + gap));
-    console.log("列",columns);
     /**定义一个空数组,用来储存每列元素的高度 */
     var arr = [];
     for (var i = 0; i < items.length; i++) {
