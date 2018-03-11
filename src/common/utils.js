@@ -1,3 +1,11 @@
+/*
+ * @Author: Daniel Hfood 
+ * @Date: 2018-03-11 20:17:13 
+ * @Last Modified by: Daniel
+ * @Last Modified time: 2018-03-11 20:17:36
+ * @name:公共方法库
+ */
+
 var utils ={
   
   /**
