@@ -28,6 +28,57 @@ module.exports = {
     }
   },
   devtool: 'inline-source-map',//开发模式下追踪错误和警告
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: ExtractTextPlugin.extract({fallback: "style-loader",use: "css-loader"})
+      },
+      {
+        test: /\.less$/,
+        exclude: /node_modules/,
+        use: ExtractTextPlugin.extract({fallback: "style-loader",use: [{
+          loader: 'css-loader'
+        },
+        {
+            loader: 'postcss-loader',
+            options: {
+              // importLoaders:1,
+                plugins: [
+                    require('autoprefixer')({
+                        browsers: ['last 5 versions']
+                    })
+                ]
+            }
+        },{
+          loader: 'less-loader'
+        }
+      ]})
+      },
+      { test: /\.js$/, 
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ["env"]
+          }
+        }
+      },
+      {test: /\.(ico|png|jpg|gif)$/,
+        exclude: /node_modules/,
+        use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name:'[name].bundle.[ext]',
+            outputPath: 'img/',
+            publicPath:'../'
+          }
+        }
+      ]}
+    ]
+  }, 
   plugins: [
     /**提取公共模块代码,减小打包体积 */
     new webpack.optimize.CommonsChunkPlugin({
@@ -111,39 +162,4 @@ module.exports = {
     // Use NoErrorsPlugin for webpack 1.x
     new webpack.NoEmitOnErrorsPlugin()
   ],
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({fallback: "style-loader",use: "css-loader"})
-      },
-      {
-        test: /\.less$/,
-        exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({fallback: "style-loader",use: "css-loader!postcss-loader!less-loader"})
-      },
-      { test: /\.js$/, 
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ["env"]
-          }
-        }
-      },
-      {test: /\.(ico|png|jpg|gif)$/,
-        exclude: /node_modules/,
-        use: [
-        {
-          loader: 'file-loader',
-          options: {
-            name:'[name].bundle.[ext]',
-            outputPath: 'img/',
-            publicPath:'../'
-          }
-        }
-      ]}
-    ]
-  }, 
 };
