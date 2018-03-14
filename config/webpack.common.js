@@ -35,42 +35,22 @@ module.exports = {
         exclude: /node_modules/,
         use: ExtractTextPlugin.extract({fallback: "style-loader",use: "css-loader"})
       },
+      /*编译less并添加浏览器前缀*/
       {
         test: /\.less$/,
         exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({fallback: "style-loader",use: [{
-          loader: 'css-loader'
-        },
-        {
-          loader: 'postcss-loader',
-          /*  该段配置,若在项目根目录下配置了postcss.config.js则可省略
-            options: {
-                plugins: [
-                    require('autoprefixer')({
-                        browsers: ['last 5 versions']
-                    })
-                ]
-            }
-          */
-        },{
-          loader: 'less-loader'
-        }
-      ]})
+        use: ExtractTextPlugin.extract({fallback: "style-loader",use: 'css-loader!postcss-loader!less-loader'
+        })
       },
+      /*转换es6到es5语法*/
       { test: /\.js$/, 
         exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ["env"]
-          }
-        }
+        use: {loader: 'babel-loader',}
       },
       {test: /\.(ico|png|jpg|gif)$/,
         exclude: /node_modules/,
         use: [
-        {
-          loader: 'file-loader',
+        {loader: 'file-loader',
           options: {
             name:'[name].bundle.[ext]',
             outputPath: 'img/',
