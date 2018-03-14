@@ -42,15 +42,16 @@ module.exports = {
           loader: 'css-loader'
         },
         {
-            loader: 'postcss-loader',
+          loader: 'postcss-loader',
+          /*  该段配置,若在项目根目录下配置了postcss.config.js则可省略
             options: {
-              // importLoaders:1,
                 plugins: [
                     require('autoprefixer')({
                         browsers: ['last 5 versions']
                     })
                 ]
             }
+          */
         },{
           loader: 'less-loader'
         }
