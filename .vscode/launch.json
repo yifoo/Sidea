@@ -10,7 +10,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "启动",
+      "name": "Node",
       "program": "${workspaceFolder}\\config\\webpack.nodeServer.js"
     },
     {

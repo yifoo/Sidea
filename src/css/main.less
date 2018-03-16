@@ -378,34 +378,44 @@
   .board{
     margin-top:.5rem;
     padding:0 1rem;
-    box-sizing:border-box
+    box-sizing:border-box;
+    li{
+      width:100%;
+      height:2rem;
+      line-height: 2rem;
+      margin-top:.25rem;
+      color:rgb(88, 85, 85);
+      border:2px solid #E6E6E6;
+      cursor:pointer;
+      i{
+        display:inline-block;
+        width:2rem;
+        height:2rem;
+        text-align:center;
+        font-style:normal;
+        background:#E6E6E6;
+      }
+      .name{
+        display:inline-block;
+        height:1.5rem;
+        line-height: 1.5rem;
+        padding-left:2rem;
+        margin-left: .25rem;
+        background:url(../img/s.png) left no-repeat;
+        background-size:contain;
+      }
+      .points{
+        padding-right:1rem;
+      }
+    }
+    li:hover{
+      background:@light-black;
+      color:@light-gray;
+      i{
+        background:inherit
+      }
+    }
   }
-  .board li{
-    width:100%;
-    height:2rem;
-    line-height: 2rem;
-    margin-top:.25rem;
-    color:rgb(88, 85, 85);
-    border:2px solid #E6E6E6;
-  }
-  i{
-    display:inline-block;
-    width:2rem;
-    height:2rem;
-    text-align:center;
-    font-style:normal;
-    background:#E6E6E6;
-  }
-  .name{
-    display:inline-block;
-    height:1.5rem;
-    line-height: 1.5rem;
-    padding-left:2rem;
-    margin-left: .25rem;
-    background:url(../img/s.png) left no-repeat;
-    background-size:contain;
-  }
-  .points{
-    padding-right:1rem;
-  }
+  
+  
 }

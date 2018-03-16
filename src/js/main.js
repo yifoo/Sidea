@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-11 20:14:37
+ * @Last Modified time: 2018-03-16 22:32:23
  * @description:首页js 
  */
 
@@ -54,7 +54,7 @@ import utils from '../common/utils';
   ajax.onreadystatechange=function(){
     var html="";
     if(ajax.readyState==4&&ajax.status==200){
-      var data=JSON.parse(ajax.response);
+      var data=JSON.parse(ajax.response).data;
     console.log(data);
       for(var i=0;i<data.length;i++){
         html+=`
@@ -72,7 +72,7 @@ import utils from '../common/utils';
                 <svg class="icon icon-bulb" aria-hidden="true">
                   <use xlink:href="#icon-bulb"></use>
                 </svg>
-                <a href="">15条点子</a>
+                <a href="">${data[i].idea}条点子</a>
               </span>
               <a href="" class="fr">${data[i].category}</a>
             </div>
