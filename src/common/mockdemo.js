@@ -8,7 +8,7 @@ Mock.mock(/idea/, 'get', {
 		"pageSize":10,
 		"pageCount":3
 	},
-  "data|15":[{
+  "list|15":[{
     "iid|1-20":100,
     "author":"@cname",
     "category":"@city",

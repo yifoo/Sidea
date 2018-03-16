@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-11 20:17:13 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-12 00:01:36
+ * @Last Modified time: 2018-03-16 23:27:44
  * @name:公共方法库
  */
 
@@ -49,13 +49,50 @@ var utils ={
    * @name:获取xhr对象
    */
   getXhr:function(){
+    
+  },
+  /**
+   * @name:封装ajax方法
+   */
+  ajax:function(obj){
+    /**获得xhr */
     var xhr;
     if(window.XMLHttpRequest){
       xhr=new XMLHttpRequest();
     }else{
       xhr=new ActiveXObject("MicroSoft.XMLHttp")
     }
-    return xhr;
+    /**请求类型 */
+    var type=obj.methods||obj.type; 
+    if(type.toLowerCase()=="get"){      //get方法的data拼接
+      if(!obj.data||obj.data.length!=0){
+        var data=obj.data;
+        var str="";
+        for(var key in data){
+          str+=key+"="+data[i]+"&"
+        }
+        xhr.open(type,obj.url+"?"+str,obj.async||true)
+      }else{
+        xhr.open(type,obj.url,obj.async||true)
+      }
+      xhr.send(null);
+    }else{
+      xhr.open(type,url,obj.async||true)
+      xhr.send(obj.data);
+    }
+    xhr.onreadystatechange=function(){      //ajax状态判断
+      if(xhr.readyState==4&&xhr.status==200){
+        if(typeof(xhr.response)=="string"){
+          var resp=JSON.parse(xhr.response);
+        }
+        obj.success(resp,xhr.response)    //ajax成功则返回数据
+      }
+      else{
+        if(obj.error){
+          obj.error(xhr)
+        }
+      }
+    }
   },
   /**
    * @name:瀑布流
