@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-16 23:25:31
+ * @Last Modified time: 2018-03-16 23:44:30
  * @description:首页js 
  */
 
@@ -49,10 +49,12 @@ import utils from '../common/utils';
  */
 (()=>{
   utils.ajax({
-    url:"http://127.0.0.1:3000/req/idea",
+    url:"idea/",
     methods:"get",
+    aysnc:false,
     success:function(data){
       var data=data.list;
+      console.log(data);
       var html="";
       for(var i=0;i<data.length;i++){
         html+=`
@@ -85,6 +87,26 @@ import utils from '../common/utils';
 /**
  * 渲染用户积分排名
  */
+(()=>{
+  utils.ajax({
+    url:"user/",
+    methods:"get",
+    success:function(data){
+      var data=data.list;
+      var html="";
+      for(var key in data){
+        html+=`
+        <li>
+          <i>${data[key].uid}</i>
+          <p class="name">${data[key].name}</p>
+          <p class="points fr">${data[key].score}</p>
+        </li>
+        `
+      }
+      document.getElementsByClassName("board")[0].innerHTML=html;
+    }
+  })
+})();
 (()=>{
   window.onload=function(){
     var contentBox=document.getElementById("tab1");

@@ -19,3 +19,16 @@ Mock.mock(/idea/, 'get', {
     "idea|1-20":100,
   }]
 })
+Mock.mock(/user/, 'get', {
+  "pageResponse":{
+		"count":27,
+		"pageNo":1,
+		"pageSize":10,
+		"pageCount":3
+	},
+  "list|15":[{
+    "uid|+1":1,
+    "name":"@cname",
+    "score|1-1000":100
+  }]
+})

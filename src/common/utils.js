@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-11 20:17:13 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-16 23:27:44
+ * @Last Modified time: 2018-03-16 23:46:24
  * @name:公共方法库
  */
 
@@ -53,6 +53,7 @@ var utils ={
   },
   /**
    * @name:封装ajax方法
+   * @param:参数对象包含methods,url,success方法等
    */
   ajax:function(obj){
     /**获得xhr */
