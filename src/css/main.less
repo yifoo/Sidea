@@ -251,8 +251,42 @@
   width:100%;
   #tab1{
     width:100%;
-    height:100rem;
+    height:80rem;
+    position: relative;
+    #idea-main{
+      height:70rem;
+      overflow: hidden;
+    }
+    .pagination{
+      position: absolute;
+      bottom: 5rem;
+      left: 50%;
+      margin-left: -10rem;
+      li{
+        float: left;
+      }
+      li>a{
+        display: inline-block;
+        margin:0 .5rem;
+        text-align: center;
+        width:2rem;
+        height:2rem;
+        line-height: 2rem;
+        background: @c-white;
+        box-sizing: border-box;
+        border-radius: 3px;
+      }
+      li.prev>a,li.next>a{
+        width:auto;
+        padding:0 .5rem;
+      }
+      li>a:hover{
+        background:@deep-red;
+        color:@c-white;
+      }
+    }
   }
+  
   .content-box{
     position: absolute;
     width:49%;

@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-11 20:17:13 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-16 23:46:24
+ * @Last Modified time: 2018-03-17 19:24:11
  * @name:公共方法库
  */
 
@@ -65,13 +65,14 @@ var utils ={
     }
     /**请求类型 */
     var type=obj.methods||obj.type; 
-    if(type.toLowerCase()=="get"){      //get方法的data拼接
+    if(type.toLowerCase()==="get"){      //get方法的data拼接
       if(!obj.data||obj.data.length!=0){
         var data=obj.data;
-        var str="";
+        var params=[];
         for(var key in data){
-          str+=key+"="+data[i]+"&"
+          params.push(key+"="+data[key])
         }
+        var str=params.join("&");
         xhr.open(type,obj.url+"?"+str,obj.async||true)
       }else{
         xhr.open(type,obj.url,obj.async||true)

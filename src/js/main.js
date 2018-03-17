@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-16 23:44:30
+ * @Last Modified time: 2018-03-17 23:01:28
  * @description:首页js 
  */
 
@@ -48,13 +48,15 @@ import utils from '../common/utils';
  * 渲染idea
  */
 (()=>{
+  var pno=1,pageSize=10;
   utils.ajax({
     url:"idea/",
     methods:"get",
+    data:{pno:pno,pageSize:pageSize},
     aysnc:false,
     success:function(data){
-      var data=data.list;
-      console.log(data);
+      var dataPage=data.pageResponse;   //获得分页数据
+      var data=data.list;               //获得列表数据
       var html="";
       for(var i=0;i<data.length;i++){
         html+=`
@@ -80,7 +82,23 @@ import utils from '../common/utils';
         </div>
         `
       }
-      document.getElementById("tab1").innerHTML=html;
+      var idea=document.getElementById("idea-main"); 
+      idea.innerHTML=html;
+
+      /**设置分页码 */
+      var pageCount=dataPage.pageCount;
+      var count=dataPage.count;
+      var pageHTML=`<li class="prev"><a href="#">上一页</a></li>`;
+      for(var i=1;i<=3;i++){
+        pageHTML+=`
+        <li><a href="#">${i}</a></li>
+        `
+      }
+      pageHTML+=`<li class="next"><a href="#">下一页</a></li>`
+      var tab1=document.getElementById("tab1");
+      var pagination=document.getElementsByClassName("pagination")[0];
+      pagination.innerHTML=pageHTML;
+      tab1.appendChild(pagination);
     }
   })
 })();
@@ -109,7 +127,7 @@ import utils from '../common/utils';
 })();
 (()=>{
   window.onload=function(){
-    var contentBox=document.getElementById("tab1");
+    var contentBox=document.getElementById("idea-main");
     var items = contentBox.children;
     utils.waterFall(contentBox,5)
     window.onresize = function() {

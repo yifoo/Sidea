@@ -3,12 +3,12 @@ var Mock = require('mockjs')
 
 Mock.mock(/idea/, 'get', {
   "pageResponse":{
-		"count":27,
-		"pageNo":1,
+		"count":57,
+		"pno":1,
 		"pageSize":10,
-		"pageCount":3
+		"pageCount":6
 	},
-  "list|15":[{
+  "list|10":[{
     "iid|1-20":100,
     "author":"@cname",
     "category":"@city",
