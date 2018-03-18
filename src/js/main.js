@@ -1,8 +1,8 @@
 /*
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
- * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-17 23:01:28
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2018-03-18 15:38:29
  * @description:首页js 
  */
 
@@ -50,9 +50,9 @@ import utils from '../common/utils';
 (()=>{
   var pno=1,pageSize=10;
   utils.ajax({
-    url:"idea/",
+    url:"http://127.0.0.1:3000/req/idea",
     methods:"get",
-    data:{pno:pno,pageSize:pageSize},
+    // data:{pno:pno,pageSize:pageSize},
     aysnc:false,
     success:function(data){
       var dataPage=data.pageResponse;   //获得分页数据
