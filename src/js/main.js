@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-18 20:51:14
+ * @Last Modified time: 2018-03-18 23:02:01
  * @description:首页js 
  */
 
@@ -91,20 +91,31 @@ import utils from '../common/utils';
 
         /**动态创建页码 */
         var pageHTML="";
-        if(dataPage.pno>2)pageHTML+=`<li><a href="${dataPage.pno-2}">${dataPage.pno-2}</a></li>`
-        if(dataPage.pno>1)pageHTML+=`<li><a href="${dataPage.pno-1}">${dataPage.pno-1}</a></li>`
+        if(typeof(dataPage.pno=="string")){
+          dataPage.pno=parseInt(dataPage.pno);
+        }
+        if(dataPage.pno>2){
+          pageHTML+=`<li><a href="${dataPage.pno-2}">${dataPage.pno-2}</a></li>`
+        }
+        if(dataPage.pno>1){
+          pageHTML+=`<li><a href="${dataPage.pno-1}">${dataPage.pno-1}</a></li>`
+        }
         pageHTML+=`<li class="active"><a href="${dataPage.pno}">${dataPage.pno}</a></li>`;
-        if(dataPage.pno<dataPage.pageCount-1)pageHTML+=`<li><a href="${dataPage.pno+1}">${dataPage.pno+1}</a></li>`
-        if(dataPage.pno<dataPage.pageCount-2)pageHTML+=`<li><a href="${dataPage.pno+2}">${dataPage.pno+2}</a></li>`
-        //获得分页元素
+        if(dataPage.pno<dataPage.pageCount-1){
+          pageHTML+=`<li><a href="${dataPage.pno+1}">${dataPage.pno+1}</a></li>`
+        }
+        if(dataPage.pno<dataPage.pageCount-2){
+          pageHTML+=`<li><a href="${dataPage.pno+2}">${dataPage.pno+2}</a></li>`
+        }
+          //获得分页元素
         var pagination=document.getElementById("pagination");
         pagination.innerHTML=pageHTML;
         // 追加上一页和下一页
         var prev=document.createElement("li");
         var next=document.createElement("li");
         var li=document.querySelector("#pagination li")
-        prev.innerHTML=`<a href="#">上一页</a>`;
-        next.innerHTML=`<a href="#">下一页</a>`;
+        prev.innerHTML=`<a href="javascript:;">上一页</a>`;
+        next.innerHTML=`<a href="javascript:;">下一页</a>`;
         prev.className="prev";
         pagination.insertBefore(prev,li);
         next.className="next";
@@ -123,10 +134,16 @@ import utils from '../common/utils';
    
   }
   var pagination=document.getElementById("pagination");
-  utils.bindEvents(pagination,"click","a",function(e){
+  utils.bindEvents(pagination,"click","li:not(.disabled) a",function(e){
     e.preventDefault();
-    var pno=e.target.getAttribute("href");
-    console.log(pno);
+    var target=e.target;
+    var pno=target.getAttribute("href");
+    var n=document.querySelector("#pagination li.active>a").getAttribute("href");
+    if(target.parentNode.className=="prev"){
+      pno=--n;
+    }else if(target.parentNode.className=="next"){
+      pno=parseInt(n)+1;
+    }
     loadPage(pno,pageSize);
     setTimeout(() => {
       var contentBox=document.getElementById("idea-main");
