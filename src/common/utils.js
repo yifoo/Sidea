@@ -1,8 +1,8 @@
 /*
  * @Author: Daniel Hfood 
  * @Date: 2018-03-11 20:17:13 
- * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-17 19:24:11
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2018-03-18 18:37:28
  * @name:公共方法库
  */
 
@@ -36,9 +36,9 @@ var utils ={
       if(selector){
         var target=e.target;
         if(target.matches(selector)){
-          fn.call(this,e.target)
+          fn.call(this,e)
         }else if(target.parentNode.matches(selector)){
-          fn.call(this,target.parentNode) //二级子元素
+          fn.call(this,e.parentNode) //二级子元素
         }
       }else{
         fn(e)

@@ -1,8 +1,8 @@
 /*
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-03-18 16:58:57
+ * @Last Modified by: Daniel
+ * @Last Modified time: 2018-03-18 20:33:29
  * @description:首页js 
  */
 
@@ -13,10 +13,10 @@ import utils from '../common/utils';
  */
 (()=>{
   var elem=document.getElementsByClassName("r-tabs")[0];
-  utils.bindEvents(elem,"click","a",function(target){
-    console.log("bangding",target);
-    var li=target.parentNode;
-    var tab=target.getAttribute("data-toggle");
+  utils.bindEvents(elem,"click","a",function(e){
+    console.log("bangding",e.target);
+    var li=e.target.parentNode;
+    var tab=e.target.getAttribute("data-toggle");
     var lis=this.children;
     for(var item of lis){
       item.removeAttribute("class")
@@ -38,9 +38,9 @@ import utils from '../common/utils';
 
  (()=>{
   var tabs=document.querySelectorAll(".l-tabs")[0];
-  utils.bindEvents(tabs,'click','li',function(target){
-    console.log("绑定",target);
-    target.classList.toggle("active");
+  utils.bindEvents(tabs,'click','li',function(e){
+    console.log("绑定",e);
+    e.target.classList.toggle("active");
   })
 })();
 
@@ -49,77 +49,92 @@ import utils from '../common/utils';
  */
 (()=>{
   var pno=1,pageSize=10;
-  utils.ajax({
-    url:"http://127.0.0.1:3000/req/idea",
-    methods:"get",
-    data:{pno:pno,pageSize:pageSize},
-    aysnc:false,
-    success:function(data){
-      var dataPage=data.pageResponse;   //获得分页数据
-      var data=data.list;               //获得列表数据
-      var html="";
-      for(var i=0;i<data.length;i++){
-        html+=`
-        <div class="content-box">
-          <div class="content">
-            <h3 class="title">${data[i].title}</h3>
-            <div class="main-content">
-              <p>${data[i].content}</p>
-              <div>
-                <img src="${data[i].img}" alt="">
+  loadPage(pno,pageSize);
+
+  function loadPage(pno,pageSize){
+    utils.ajax({
+      url:"http://127.0.0.1:3000/req/idea",
+      methods:"get",
+      data:{pno:pno,pageSize:pageSize},
+      aysnc:false,
+      success:function(data){
+        console.log(data,"数据");
+        var dataPage=data.pageResponse;   //获得分页数据
+        var data=data.list;               //获得列表数据
+        var html="";
+        for(var i=0;i<data.length;i++){
+          html+=`
+          <div class="content-box">
+            <div class="content">
+              <h3 class="title">${data[i].title}</h3>
+              <div class="main-content">
+                <p>${data[i].content}</p>
+                <div>
+                  <img src="${data[i].img}" alt="">
+                </div>
+              </div>
+              <div class="foot-content clear">
+                <span class="fl">
+                  <svg class="icon icon-bulb" aria-hidden="true">
+                    <use xlink:href="#icon-bulb"></use>
+                  </svg>
+                  <a href="">${data[i].idea}条点子</a>
+                </span>
+                <a href="" class="fr">${data[i].category}</a>
               </div>
             </div>
-            <div class="foot-content clear">
-              <span class="fl">
-                <svg class="icon icon-bulb" aria-hidden="true">
-                  <use xlink:href="#icon-bulb"></use>
-                </svg>
-                <a href="">${data[i].idea}条点子</a>
-              </span>
-              <a href="" class="fr">${data[i].category}</a>
-            </div>
           </div>
-        </div>
-        `
+          `
+        }
+        var idea=document.getElementById("idea-main"); 
+        idea.innerHTML=html;
+
+        /**动态创建页码 */
+        var pageHTML="";
+        if(dataPage.pno>2)pageHTML+=`<li><a href="${dataPage.pno-2}">${dataPage.pno-2}</a></li>`
+        if(dataPage.pno>1)pageHTML+=`<li><a href="${dataPage.pno-1}">${dataPage.pno-1}</a></li>`
+        pageHTML+=`<li class="active"><a href="${dataPage.pno}">${dataPage.pno}</a></li>`;
+        if(dataPage.pno<dataPage.pageCount-1)pageHTML+=`<li><a href="${dataPage.pno+1}">${dataPage.pno+1}</a></li>`
+        if(dataPage.pno<dataPage.pageCount-2)pageHTML+=`<li><a href="${dataPage.pno+2}">${dataPage.pno+2}</a></li>`
+        //获得分页元素
+        var pagination=document.getElementById("pagination");
+        console.log(pageHTML);
+        pagination.innerHTML=pageHTML;
+        // 追加上一页和下一页
+        var prev=document.createElement("li");
+        var next=document.createElement("li");
+        var li=document.querySelector("#pagination li")
+        prev.innerHTML=`<a href="#">上一页</a>`;
+        next.innerHTML=`<a href="#">下一页</a>`;
+        prev.className="prev";
+        pagination.insertBefore(prev,li);
+        next.className="next";
+        pagination.appendChild(next);
+
+        // // 判断状态
+        if(dataPage.pno==1)
+        prev.className="prev disabled";
+          // $("#pagination>.active").prev().addClass("disabled");
+        if(dataPage.pno==dataPage.pageCount)
+          // $("#pagination>.active").next().addClass("disabled");
+        next.className="next disabled";
+
       }
-      var idea=document.getElementById("idea-main"); 
-      idea.innerHTML=html;
-
-      /**设置分页码 */
-      var pageHTML="";
-      if(dataPage.pno>2)pageHTML+=`<li><a href="${dataPage.pno-2}">${dataPage.pno-2}</a></li>`
-      if(dataPage.pno>1)pageHTML+=`<li><a href="${dataPage.pno-1}">${dataPage.pno-1}</a></li>`
-      pageHTML+=`<li class="active"><a href="${dataPage.pno}">${dataPage.pno}</a></li>`;
-      if(dataPage.pno<dataPage.pageCount-1)pageHTML+=`<li><a href="${dataPage.pno+1}">${dataPage.pno+1}</a></li>`
-      if(dataPage.pno<dataPage.pageCount-2)pageHTML+=`<li><a href="${dataPage.pno+2}">${dataPage.pno+2}</a></li>`
-      var pagination=document.getElementById("pagination");
-      console.log(pageHTML);
-      pagination.innerHTML=pageHTML;
-      // 追加上一页和下一页
-      var prev=document.createElement("li");
-      var next=document.createElement("li");
-      var li=document.querySelector("#pagination li")
-      prev.innerHTML=`<a href="#">上一页</a>`;
-      next.innerHTML=`<a href="#">下一页</a>`;
-      prev.className="prev";
-      pagination.insertBefore(prev,li);
-      next.className="next";
-      pagination.appendChild(next);
-
-      // // 判断状态
-      // if(pager.pno==1)
-      //   $("#pagination>.active").prev().addClass("disabled");
-      // if(pager.pno==pager.pageCount)
-      //   $("#pagination>.active").next().addClass("disabled");
-
-
-    }
+    })
+  }
+  var pagination=document.getElementById("pagination");
+  utils.bindEvents(pagination,"click","a",function(e){
+    e.preventDefault();
+    var pno=e.target.getAttribute("href");
+    console.log(pno);
+    loadPage(pno,pageSize);
   })
 })();
 /**
  * 渲染用户积分排名
  */
 (()=>{
+  console.log("用户");
   utils.ajax({
     url:"user/",
     methods:"get",
@@ -139,7 +154,6 @@ import utils from '../common/utils';
     }
   })
 })();
-(()=>{
   window.onload=function(){
     var contentBox=document.getElementById("idea-main");
     var items = contentBox.children;
@@ -149,4 +163,3 @@ import utils from '../common/utils';
     };
   }
   
-})()

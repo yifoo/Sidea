@@ -4,7 +4,7 @@ var Mock = require('mockjs')
 Mock.mock(/idea/, 'get', {
   "pageResponse":{
 		"count":87,
-		"pno":1,
+		"pno":5,
 		"pageSize":10,
 		"pageCount":9
 	},

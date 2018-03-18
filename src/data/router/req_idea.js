@@ -5,7 +5,8 @@ let router = express.Router();
 router.get('/idea',function(req,res){
   pool.query("SELECT * FROM sidea_req ",function(err,result){
     var resp={};
-    resp.data=result;
+    resp.list=result;
+    console.log(resp);
     res.json(resp)
   })
 })

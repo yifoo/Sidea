@@ -281,10 +281,6 @@
         background:@deep-red;
         color:@c-white;
       }
-      li.disabled>a{
-        background:@light-gray;
-        color:@bg-color;
-      }
       li.prev>a,li.next>a{
         width:auto;
         padding:0 .5rem;
@@ -292,6 +288,10 @@
       li>a:hover{
         background:@deep-red;
         color:@c-white;
+      }
+      li.disabled>a{
+        background:@light-gray;
+        color:@bg-color;
       }
     }
   }
@@ -357,6 +357,7 @@
   width:100%;
   height:20rem;
   opacity: 0;
+  top:0;
   transition: all .2s linear;
 }
 .tab-container>div.active{
