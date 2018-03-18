@@ -1,7 +1,7 @@
 // 使用 Mock
 var Mock = require('mockjs')
 
-Mock.mock(/idea/, 'get', {
+Mock.mock(/idea1/, 'get', {
   "pageResponse":{
 		"count":87,
 		"pno":5,

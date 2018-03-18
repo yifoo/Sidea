@@ -2,12 +2,13 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-18 20:33:29
+ * @Last Modified time: 2018-03-18 20:51:14
  * @description:首页js 
  */
 
 import "../css/main.less";
 import utils from '../common/utils';
+
 /**
  * 切换菜单Tab:最新/趋势/热门
  */
@@ -58,7 +59,6 @@ import utils from '../common/utils';
       data:{pno:pno,pageSize:pageSize},
       aysnc:false,
       success:function(data){
-        console.log(data,"数据");
         var dataPage=data.pageResponse;   //获得分页数据
         var data=data.list;               //获得列表数据
         var html="";
@@ -98,7 +98,6 @@ import utils from '../common/utils';
         if(dataPage.pno<dataPage.pageCount-2)pageHTML+=`<li><a href="${dataPage.pno+2}">${dataPage.pno+2}</a></li>`
         //获得分页元素
         var pagination=document.getElementById("pagination");
-        console.log(pageHTML);
         pagination.innerHTML=pageHTML;
         // 追加上一页和下一页
         var prev=document.createElement("li");
@@ -121,6 +120,7 @@ import utils from '../common/utils';
 
       }
     })
+   
   }
   var pagination=document.getElementById("pagination");
   utils.bindEvents(pagination,"click","a",function(e){
@@ -128,6 +128,11 @@ import utils from '../common/utils';
     var pno=e.target.getAttribute("href");
     console.log(pno);
     loadPage(pno,pageSize);
+    setTimeout(() => {
+      var contentBox=document.getElementById("idea-main");
+      var items = contentBox.children;
+      utils.waterFall(contentBox,5)
+    }, 100);
   })
 })();
 /**
@@ -154,12 +159,15 @@ import utils from '../common/utils';
     }
   })
 })();
-  window.onload=function(){
-    var contentBox=document.getElementById("idea-main");
-    var items = contentBox.children;
+
+
+
+
+window.onload=function(){
+  var contentBox=document.getElementById("idea-main");
+  var items = contentBox.children;
+  utils.waterFall(contentBox,5)
+  window.onresize = function() {
     utils.waterFall(contentBox,5)
-    window.onresize = function() {
-      utils.waterFall(contentBox,5)
-    };
-  }
-  
+  };
+}
