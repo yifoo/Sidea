@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-03-18 15:38:29
+ * @Last Modified time: 2018-03-18 16:58:57
  * @description:首页js 
  */
 
@@ -52,7 +52,7 @@ import utils from '../common/utils';
   utils.ajax({
     url:"http://127.0.0.1:3000/req/idea",
     methods:"get",
-    // data:{pno:pno,pageSize:pageSize},
+    data:{pno:pno,pageSize:pageSize},
     aysnc:false,
     success:function(data){
       var dataPage=data.pageResponse;   //获得分页数据
@@ -86,19 +86,33 @@ import utils from '../common/utils';
       idea.innerHTML=html;
 
       /**设置分页码 */
-      var pageCount=dataPage.pageCount;
-      var count=dataPage.count;
-      var pageHTML=`<li class="prev"><a href="#">上一页</a></li>`;
-      for(var i=1;i<=3;i++){
-        pageHTML+=`
-        <li><a href="#">${i}</a></li>
-        `
-      }
-      pageHTML+=`<li class="next"><a href="#">下一页</a></li>`
-      var tab1=document.getElementById("tab1");
-      var pagination=document.getElementsByClassName("pagination")[0];
+      var pageHTML="";
+      if(dataPage.pno>2)pageHTML+=`<li><a href="${dataPage.pno-2}">${dataPage.pno-2}</a></li>`
+      if(dataPage.pno>1)pageHTML+=`<li><a href="${dataPage.pno-1}">${dataPage.pno-1}</a></li>`
+      pageHTML+=`<li class="active"><a href="${dataPage.pno}">${dataPage.pno}</a></li>`;
+      if(dataPage.pno<dataPage.pageCount-1)pageHTML+=`<li><a href="${dataPage.pno+1}">${dataPage.pno+1}</a></li>`
+      if(dataPage.pno<dataPage.pageCount-2)pageHTML+=`<li><a href="${dataPage.pno+2}">${dataPage.pno+2}</a></li>`
+      var pagination=document.getElementById("pagination");
+      console.log(pageHTML);
       pagination.innerHTML=pageHTML;
-      tab1.appendChild(pagination);
+      // 追加上一页和下一页
+      var prev=document.createElement("li");
+      var next=document.createElement("li");
+      var li=document.querySelector("#pagination li")
+      prev.innerHTML=`<a href="#">上一页</a>`;
+      next.innerHTML=`<a href="#">下一页</a>`;
+      prev.className="prev";
+      pagination.insertBefore(prev,li);
+      next.className="next";
+      pagination.appendChild(next);
+
+      // // 判断状态
+      // if(pager.pno==1)
+      //   $("#pagination>.active").prev().addClass("disabled");
+      // if(pager.pno==pager.pageCount)
+      //   $("#pagination>.active").next().addClass("disabled");
+
+
     }
   })
 })();

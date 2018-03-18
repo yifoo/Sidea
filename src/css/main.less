@@ -257,11 +257,12 @@
       height:70rem;
       overflow: hidden;
     }
-    .pagination{
+    #pagination{
       position: absolute;
       bottom: 5rem;
       left: 50%;
-      margin-left: -10rem;
+      width:30rem;
+      margin-left: -15rem;
       li{
         float: left;
       }
@@ -275,6 +276,14 @@
         background: @c-white;
         box-sizing: border-box;
         border-radius: 3px;
+      }
+      li.active>a{
+        background:@deep-red;
+        color:@c-white;
+      }
+      li.disabled>a{
+        background:@light-gray;
+        color:@bg-color;
       }
       li.prev>a,li.next>a{
         width:auto;

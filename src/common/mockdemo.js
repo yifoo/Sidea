@@ -3,10 +3,10 @@ var Mock = require('mockjs')
 
 Mock.mock(/idea/, 'get', {
   "pageResponse":{
-		"count":57,
+		"count":87,
 		"pno":1,
 		"pageSize":10,
-		"pageCount":6
+		"pageCount":9
 	},
   "list|10":[{
     "iid|1-20":100,
