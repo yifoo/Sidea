@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-18 23:05:28
+ * @Last Modified time: 2018-03-25 00:09:43
  * @description:首页js 
  */
 
@@ -15,10 +15,14 @@ import utils from '../common/utils';
 (()=>{
   var elem=document.getElementsByClassName("r-tabs")[0];
   utils.bindEvents(elem,"click","a",function(e){
-    console.log("bangding",e.target);
-    var li=e.target.parentNode;
-    var tab=e.target.getAttribute("data-toggle");
-    var lis=this.children;
+    //如果e.target为svg,则改变target对象为父对象
+    var target=e.target;
+    if(target.tagName=="svg"){
+      target=target.parentNode;
+    }
+    var li=target.parentNode;
+    var tab=target.getAttribute("data-toggle");
+    var lis=this.parentNode.parentNode.children;
     for(var item of lis){
       item.removeAttribute("class")
       item.setAttribute("class",'item')
@@ -38,10 +42,14 @@ import utils from '../common/utils';
  */
 
  (()=>{
-  var tabs=document.querySelectorAll(".l-tabs")[0];
-  utils.bindEvents(tabs,'click','li',function(e){
-    console.log("绑定",e);
-    e.target.classList.toggle("active");
+  var ul=document.querySelectorAll(".l-tabs ul")[0];
+  utils.bindEvents(ul,'click','li',function(e){
+    var lis=this.parentNode.children;
+    for(var value of lis){
+      console.log(value);
+      value.setAttribute("class",'');
+    }
+    this.classList.toggle("active");
   })
 })();
 

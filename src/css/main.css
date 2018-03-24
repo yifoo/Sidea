@@ -1,0 +1,510 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #E4E4E4;
+  font-size: 15px;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+a:hover {
+  color: #000000;
+}
+img {
+  vertical-align: middle;
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+.clear::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+/*头部样式*/
+.header {
+  height: 4rem;
+  width: 100%;
+  padding: 0 0.2rem;
+  box-sizing: border-box;
+  background-color: #1F1321;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+/*logo样式*/
+.logo {
+  width: 6rem;
+  height: 2.5rem;
+  margin-left: 1rem;
+  background: url(../img/logo.png) center no-repeat;
+  background-size: contain;
+}
+/*搜索框样式*/
+.head-middle {
+  width: 40%;
+  position: relative;
+}
+.head-middle .sort ul {
+  position: absolute;
+  height: 2.2rem;
+  line-height: 2.2rem;
+  left: -8rem;
+}
+.head-middle .sort li {
+  float: left;
+  color: #fff;
+  width: 4rem;
+  color: #f8f4f4;
+  cursor: pointer;
+}
+.head-middle .sort li.active {
+  color: #fff;
+}
+.head-middle input {
+  width: 100%;
+  height: 2.2rem;
+  padding: 1rem .5rem;
+  box-sizing: border-box;
+  border-radius: .3rem;
+  border: 0;
+  font-size: 1rem;
+  outline-color: transparent;
+  background-color: #4A4A4A;
+}
+.head-middle button {
+  position: absolute;
+  top: 50%;
+  margin-top: -1.1rem;
+  right: -3.5rem;
+  border-radius: .3rem;
+  border: 0;
+  width: auto;
+  padding: 0 .5rem;
+  height: 2.2rem;
+  outline: none;
+  background-color: #990000;
+  color: #E4E4E4;
+}
+.head-middle button:hover {
+  background-color: #7c0303;
+  color: #fff;
+}
+.head-middle button:active {
+  background-color: #7c0303;
+  color: #fff;
+}
+.icon-search {
+  position: absolute;
+  font-size: 1.5rem;
+  padding-left: .5rem;
+  top: 50%;
+  margin-top: -0.75rem;
+  right: .5rem;
+  border-left: 2px solid #1F1321;
+  cursor: pointer;
+}
+/*登录和菜单框*/
+.r-box {
+  width: 10%;
+}
+.loginbox ul > li {
+  float: left;
+  width: auto;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.loginbox ul > li:first-child {
+  text-align: right;
+}
+.loginbox ul > li:nth-child(2) {
+  width: 15%;
+  cursor: default;
+}
+.loginbox ul > li:nth-child(3) {
+  text-align: left;
+}
+.icon-menu {
+  font-size: 3rem;
+  padding-left: 2%;
+  color: #990000;
+}
+@media screen and (max-width: 768px) {
+  .loginbox {
+    display: none;
+  }
+  .logo {
+    width: 2rem;
+    background: url(../img/s.png) center center no-repeat;
+    background-size: contain;
+  }
+  .head-middle {
+    width: 55%;
+  }
+  .head-middle button {
+    right: -3.2rem;
+  }
+  .head-middle .sort {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .icon-menu {
+    display: none;
+  }
+}
+/*section 主题样式*/
+.section {
+  width: 100%;
+}
+#menu {
+  width: 100%;
+  height: 2.5rem;
+  background: #fff;
+  margin-bottom: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#menu ul > li {
+  float: left;
+  background-color: #990000;
+  color: #f8f4f4;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding: .2rem 1rem;
+  border-radius: 1rem;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+#menu ul > li:hover {
+  background-color: #7c0303;
+  color: #fff;
+}
+#menu ul > li.active {
+  background-color: #e90505;
+  color: #fff;
+}
+#main {
+  margin: 0 7rem;
+  display: flex;
+  justify-content: center;
+}
+#l-section {
+  width: 70%;
+}
+#r-section {
+  width: 18rem;
+  margin-left: .5rem;
+}
+#tabs {
+  width: 99.1%;
+  padding: 0 1rem;
+  height: 3rem;
+  position: relative;
+  background: #fff;
+  box-sizing: border-box;
+}
+#tabs .l-tabs {
+  position: absolute;
+  top: 50%;
+  margin-top: -1rem;
+  width: 20%;
+}
+#tabs .l-tabs li {
+  float: left;
+  font-size: 1.5rem;
+  padding: 0 .25rem;
+  color: darkslategray;
+  border: 1px solid #E4E4E4;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+#tabs .l-tabs li:first-child {
+  border-right: 0;
+}
+#tabs .l-tabs li.active,
+#tabs #tabs .l-tabs li:hover {
+  box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.16);
+}
+#tabs .r-tabs {
+  width: 50%;
+  height: 3rem;
+  float: right;
+  display: flex;
+  justify-content: space-around;
+  line-height: 3rem;
+  font-size: 1rem;
+}
+#tabs .r-tabs .item {
+  text-align: center;
+  width: 30%;
+  cursor: pointer;
+}
+#tabs .r-tabs .item a {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: inline-block;
+}
+#tabs .r-tabs .item.active,
+#tabs .r-tabs .r-tabs .item:hover {
+  border-bottom: 0.2rem solid #990000;
+}
+#tabs .r-tabs .item.active a,
+#tabs .r-tabs .r-tabs .item:hover a {
+  color: #990000;
+}
+@media screen and (max-width: 1100px) {
+  #main {
+    margin: 0 .5rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  #menu,
+  #tabs,
+  #r-section {
+    display: none;
+  }
+  #l-section {
+    width: 100%;
+  }
+}
+.tab-container {
+  margin: .5rem 0;
+  position: relative;
+  width: 100%;
+}
+.tab-container #tab1 {
+  width: 100%;
+  height: 80rem;
+  position: relative;
+}
+.tab-container #tab1 #idea-main {
+  height: 65rem;
+  overflow: hidden;
+}
+.tab-container #tab1 #pagination {
+  margin: 0 auto;
+  width: 30rem;
+}
+.tab-container #tab1 #pagination li {
+  float: left;
+}
+.tab-container #tab1 #pagination li > a {
+  display: inline-block;
+  margin: 0 .5rem;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.tab-container #tab1 #pagination li.active > a {
+  background: #990000;
+  color: #fff;
+}
+.tab-container #tab1 #pagination li.prev > a,
+.tab-container #tab1 #pagination li.next > a {
+  width: auto;
+  padding: 0 .5rem;
+}
+.tab-container #tab1 #pagination li > a:hover {
+  background: #990000;
+  color: #fff;
+}
+.tab-container #tab1 #pagination li.disabled > a {
+  background: #f8f4f4;
+  color: #E4E4E4;
+}
+.tab-container .content-box {
+  position: absolute;
+  width: 49%;
+  box-sizing: border-box;
+}
+.tab-container .content {
+  padding: .5rem;
+  background: #fff;
+  border: .5px solid transparent;
+  transition: all .1s linear;
+}
+.tab-container .content .main-content {
+  cursor: pointer;
+}
+.tab-container .content .main-content .title {
+  font-size: 15px;
+  margin-bottom: .5rem;
+}
+.tab-container .content .main-content p {
+  width: 75%;
+  min-height: 4rem;
+  display: inline-block;
+}
+.tab-container .content .main-content > div {
+  float: right;
+  width: 25%;
+  text-align: center;
+}
+.tab-container .content .main-content img {
+  width: 100%;
+  max-height: 5rem;
+  max-width: 6rem;
+}
+.tab-container .content .foot-content {
+  margin-top: .5rem;
+}
+.tab-container .content .foot-content span {
+  display: inline-block;
+  background-color: #E4E4E4;
+  padding: 0px 3px;
+}
+.tab-container .content .foot-content span a {
+  font-size: 10px;
+  margin-left: -5px;
+}
+.tab-container .content:hover {
+  border: .5px solid #ccc;
+  box-sizing: border-box;
+}
+.tab-container .content:hover .foot-content span {
+  background-color: #990000;
+}
+.tab-container .content:hover .foot-content span a {
+  color: #fff;
+}
+.tab-container > div {
+  position: absolute;
+  width: 100%;
+  height: 20rem;
+  opacity: 0;
+  top: 0;
+  transition: all .2s linear;
+}
+.tab-container > div.active {
+  opacity: 1;
+  z-index: 2;
+}
+@media screen and (max-width: 650px) {
+  .tab-container .content-box {
+    width: 100%;
+  }
+}
+.icon-bulb {
+  font-size: 14px;
+}
+/*登录信息框*/
+#userInfo {
+  background: #fff;
+}
+#userInfo .beforeLogin .title {
+  height: 2rem;
+  line-height: 2rem;
+  border-bottom: 1px solid #E4E4E4;
+  text-align: center;
+}
+#userInfo .beforeLogin .desp {
+  padding: .5rem;
+  line-height: 1.5rem;
+}
+#userInfo .beforeLogin .register,
+#userInfo .beforeLogin .login {
+  display: inline-block;
+  padding: .25rem 1rem;
+  border: 1px solid #E4E4E4;
+  background-color: #eeeded;
+}
+#userInfo .beforeLogin .register:hover,
+#userInfo .beforeLogin .login:hover {
+  background: #E4E4E4;
+}
+#voteBoard {
+  margin: .5rem 0;
+  padding-bottom: 1rem;
+  background: #fff;
+}
+#voteBoard .title {
+  height: 2rem;
+  line-height: 2rem;
+  border-bottom: 1px solid #E4E4E4;
+  text-align: center;
+}
+#voteBoard .banner {
+  width: 100%;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  background: linear-gradient(to right, #4C4A4A, #BA3939);
+  color: #fff;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+#voteBoard .board {
+  margin-top: .5rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+#voteBoard .board li {
+  width: 100%;
+  height: 2rem;
+  line-height: 2rem;
+  margin-top: .25rem;
+  color: #585555;
+  border: 2px solid #E6E6E6;
+  cursor: pointer;
+}
+#voteBoard .board li i {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  font-style: normal;
+  background: #E6E6E6;
+}
+#voteBoard .board li .name {
+  display: inline-block;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding-left: 2rem;
+  margin-left: .25rem;
+  background: url(../img/s.png) left no-repeat;
+  background-size: contain;
+}
+#voteBoard .board li .points {
+  padding-right: 1rem;
+}
+#voteBoard .board li:hover {
+  background: #4A4A4A;
+  color: #f8f4f4;
+}
+#voteBoard .board li:hover i {
+  background: inherit;
+}
