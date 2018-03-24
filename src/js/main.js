@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-25 00:09:43
+ * @Last Modified time: 2018-03-25 00:21:19
  * @description:首页js 
  */
 
@@ -46,7 +46,6 @@ import utils from '../common/utils';
   utils.bindEvents(ul,'click','li',function(e){
     var lis=this.parentNode.children;
     for(var value of lis){
-      console.log(value);
       value.setAttribute("class",'');
     }
     this.classList.toggle("active");

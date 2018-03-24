@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-11 20:17:13 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-25 00:05:34
+ * @Last Modified time: 2018-03-25 00:30:34
  * @name:公共方法库
  */
 
@@ -36,11 +36,16 @@ var utils ={
       e.preventDefault();
       if(selector){
         var target=e.target;
+        console.log(target);
         if(target.matches(selector)){
           fn.call(target,e)
         }else if(target.parentNode.matches(selector)){
           var target=target.parentNode
           fn.call(target,e) //二级子元素
+        }
+        else if(target.parentNode.parentNode.matches(selector)){
+          var target=target.parentNode.parentNode
+          fn.call(target,e) //三级子元素
         }
       }else{
         fn(e)
