@@ -1,8 +1,8 @@
 /*
  * @Author: Daniel Hfood 
  * @Date: 2018-03-11 20:17:13 
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-03-18 18:37:28
+ * @Last Modified by: Daniel
+ * @Last Modified time: 2018-03-25 20:52:19
  * @name:公共方法库
  */
 
@@ -24,7 +24,7 @@ var utils ={
 
   /**
    * @name: 通用事件绑定
-   * @param:elem:事件作用父元素,type:事件类型,selector:事件作用元素,fn:事件回调函数(参数代表e.target)
+   * @param:elem:事件作用父元素,type:事件类型,selector:事件作用元素,fn:事件回调函数(参数代表e)
    * @description:该方法可传3个参数或4个参数,3个参数:没有冒泡,4个参数:有冒泡
    */
   bindEvents:function(elem,type,selector,fn){
@@ -33,12 +33,18 @@ var utils ={
       selector=null;
     }
     elem.addEventListener(type,function(e){
+      e.preventDefault();
       if(selector){
         var target=e.target;
         if(target.matches(selector)){
-          fn.call(this,e)
+          fn.call(target,e)
         }else if(target.parentNode.matches(selector)){
-          fn.call(this,e.parentNode) //二级子元素
+          var target=target.parentNode
+          fn.call(target,e) //二级子元素
+        }
+        else if(target.parentNode.parentNode.matches(selector)){
+          var target=target.parentNode.parentNode
+          fn.call(target,e) //三级子元素
         }
       }else{
         fn(e)
