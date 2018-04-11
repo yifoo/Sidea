@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-11 20:17:13 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-25 20:52:19
+ * @Last Modified time: 2018-04-11 23:42:37
  * @name:公共方法库
  */
 
@@ -79,13 +79,15 @@ var utils ={
           params.push(key+"="+data[key])
         }
         var str=params.join("&");
-        xhr.open(type,obj.url+"?"+str,obj.async||true)
+        console.log("str",str);
+        xhr.open(type,obj.url+"?"+str,obj.async||false)
+        console.log("地址",type+obj.url+"?"+str+obj.async||false);
       }else{
-        xhr.open(type,obj.url,obj.async||true)
+        xhr.open(type,obj.url,obj.async||false)
       }
       xhr.send(null);
     }else{
-      xhr.open(type,url,obj.async||true)
+      xhr.open(type,url,obj.async||false)
       xhr.send(obj.data);
     }
     xhr.onreadystatechange=function(){      //ajax状态判断
