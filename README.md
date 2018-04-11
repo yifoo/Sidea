@@ -1,4 +1,4 @@
-### Sidea
+### Sidea   [预览](https://www.haohome.top/sidea/)
 - 模拟国外的一个网站GetIdeas;
 - 采用原生js开发,以练习为目的,强化原生js运用;
 - 自定义方法动态更新根元素html的font-size大小,采用rem单位;
@@ -22,13 +22,13 @@
 
 4. 运行
 
-   4.1开发模式(两种)
+    4.1开发模式(两种)
 
    ① 直接运行命令`npm run server`
    
    ② 也可先运行`npm run nodeServer`,再启动另一个控制面板运行`npm run dev`(推荐)
 
-   4.2 生产模式
+    4.2 生产模式
 
    > - 先运行`npm run build`,生成的项目文件在`dist`文件夹下;
    > - 将dist文件夹整体拷贝到服务器根目录下;

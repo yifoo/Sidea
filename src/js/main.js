@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-04-11 23:46:56
+ * @Last Modified time: 2018-04-11 23:50:38
  * @description:首页js 
  */
 
@@ -106,7 +106,7 @@ window.onload=function(){
   console.log(contentBox);
   setTimeout(() => {
     utils.waterFall(contentBox,5)
-  },0)
+  },100)
   window.onresize = function() {
     setTimeout(() => {
       utils.waterFall(contentBox,5)
