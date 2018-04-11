@@ -2,11 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
-<<<<<<< HEAD
- * @Last Modified time: 2018-03-18 23:05:28
-=======
- * @Last Modified time: 2018-03-25 21:33:51
->>>>>>> e2f6e37924805ec336ce31cb25c7cb2358777c52
+ * @Last Modified time: 2018-04-11 21:42:08
  * @description:首页js 
  */
 
