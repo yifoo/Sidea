@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-03-18 23:02:01
+ * @Last Modified time: 2018-03-18 23:05:28
  * @description:首页js 
  */
 
@@ -124,9 +124,7 @@ import utils from '../common/utils';
         // // 判断状态
         if(dataPage.pno==1)
         prev.className="prev disabled";
-          // $("#pagination>.active").prev().addClass("disabled");
         if(dataPage.pno==dataPage.pageCount)
-          // $("#pagination>.active").next().addClass("disabled");
         next.className="next disabled";
 
       }
