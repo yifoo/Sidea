@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-11 20:17:13 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-04-12 22:22:15
+ * @Last Modified time: 2018-04-12 23:55:07
  * @name:公共方法库
  */
 
@@ -70,24 +70,23 @@ var utils ={
       xhr=new ActiveXObject("MicroSoft.XMLHttp")
     }
     /**请求类型 */
-    var type=obj.methods||obj.type; 
-    if(type.toLowerCase()==="get"){      //get方法的data拼接
-      if(!obj.data||obj.data.length!=0){
-        var data=obj.data;
+    var type=obj.method || obj.type;	//支持方法属性为method或type;
+    var async=obj.async == undefined ? true : obj.async;
+    var data = obj.data == undefined ? {} : obj.data;
+    if(type.toLowerCase()==="get"){   //get方法的data拼接
+      if(data){										//obj.data为js对象	
         var params=[];
         for(var key in data){
-          params.push(key+"="+data[key])
+          params.push(key+"="+data[key])	//将对象键值对以字符串形式存入数组中
         }
-        var str=params.join("&");
-        console.log("str",str);
-        xhr.open(type,obj.url+"?"+str,obj.async||false)
-        console.log("地址",type+obj.url+"?"+str+obj.async||false);
+        var str=params.join("&");					//拼接字符串
+        xhr.open(type,obj.url+"?"+str,async)
       }else{
-        xhr.open(type,obj.url,obj.async||false)
+        xhr.open(type,obj.url,async)
       }
       xhr.send(null);
     }else{
-      xhr.open(type,url,obj.async||false)
+      xhr.open(type,url,async)
       xhr.send(obj.data);
     }
     xhr.onreadystatechange=function(){      //ajax状态判断
