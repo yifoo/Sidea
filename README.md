@@ -1,4 +1,4 @@
-### Sidea   [预览](https://www.haohome.top/sidea/)
+### Sidea   
 - 模拟国外的一个网站GetIdeas;
 - 采用原生js开发,以练习为目的,强化原生js运用;
 - 自定义方法动态更新根元素html的font-size大小,采用rem单位;
