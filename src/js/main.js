@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-04-14 16:57:13
+ * @Last Modified time: 2018-04-14 21:55:59
  * @description:首页js 
  */
 
@@ -55,26 +55,8 @@ import utils from '../common/utils';
  * 渲染idea
  */
 (()=>{
-  var pno=1,pageSize=10;
-  loadPage(pno,pageSize);
-  var pagination=document.getElementById("pagination");
-  utils.bindEvents(pagination,"click","li:not(.disabled) a",function(e){
-    e.preventDefault();
-    var target=e.target;
-    var pno=target.getAttribute("href");
-    var n=document.querySelector("#pagination li.active>a").getAttribute("href");
-    if(target.parentNode.className=="prev"){
-      pno=--n;
-    }else if(target.parentNode.className=="next"){
-      pno=parseInt(n)+1;
-    }
-    loadPage(pno,pageSize);
-    setTimeout(() => {
-      var contentBox=document.getElementById("idea-main");
-      var items = contentBox.children;
-      utils.waterFall(contentBox,5)
-    }, 500);
-  })
+  
+  
 })();
 /**
  * 渲染用户积分排名
@@ -103,16 +85,40 @@ import utils from '../common/utils';
   })
 })();
 window.onload=function(){
-  console.log("资源加载完毕");
-  var contentBox=document.getElementById("idea-main");
-  var items = contentBox.children;
+  var pno=1,pageSize=10;
+  loadPage(pno,pageSize);
+  var ideaMain=document.getElementById("idea-main");
+  var items = ideaMain.children;
+  var contentBox=document.querySelectorAll('.content-box');
   console.log(contentBox);
+  var lastEle=contentBox[items.length-1];
+  var last2Ele=contentBox[items.length-2];
+  var  lastTop=window.getComputedStyle(lastEle,null).top;
+  console.log(lastEle,last2Ele,lastTop);
+  var pagination=document.getElementById("pagination");
+  utils.bindEvents(pagination,"click","li:not(.disabled) a",function(e){
+    e.preventDefault();
+    var target=e.target;
+    var pno=target.getAttribute("href");
+    var n=document.querySelector("#pagination li.active>a").getAttribute("href");
+    if(target.parentNode.className=="prev"){
+      pno=--n;
+    }else if(target.parentNode.className=="next"){
+      pno=parseInt(n)+1;
+    }
+    loadPage(pno,pageSize);
+    setTimeout(() => {
+      var contentBox=document.getElementById("idea-main");
+      var items = contentBox.children;
+      utils.waterFall(contentBox,5)
+    }, 500);
+  })
   setTimeout(() => {
-    utils.waterFall(contentBox,5)
+    utils.waterFall(ideaMain,5)
   },100)
   window.onresize = function() {
     setTimeout(() => {
-      utils.waterFall(contentBox,5)
+      utils.waterFall(ideaMain,5)
     },0)
   };
 }
@@ -121,7 +127,7 @@ function loadPage(pno,pageSize){
     url:"https://www.haohome.top/sidea/req_idea.php",
     method:"get",
     data:{pno:pno,pageSize:pageSize},
-    async:true,
+    async:false,
     success:function(resp){
       if(typeof(resp)=='string'){
         resp=JSON.parse(resp);
@@ -153,6 +159,7 @@ function loadPage(pno,pageSize){
           </div>
         </div>
         `
+        console.log("支援请求完毕");
       }
       var idea=document.getElementById("idea-main"); 
       idea.innerHTML=html;
@@ -193,7 +200,6 @@ function loadPage(pno,pageSize){
       prev.className="prev disabled";
       if(dataPage.pno==dataPage.pageCount)
       next.className="next disabled";
-      console.log("请求结束");
     }
   })
 }

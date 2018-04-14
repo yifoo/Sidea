@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-11 20:17:13 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-04-14 16:53:08
+ * @Last Modified time: 2018-04-14 22:03:07
  * @name:公共方法库
  */
 
@@ -96,7 +96,6 @@ var utils ={
         xhr.setRequestHeader('Content-Type',"application/x-www-form-urlencoded")
       }
       xhr.open(type,url,async);
-      xhr.send(data);	//get类型data为null
       xhr.onreadystatechange=function(){
         if(xhr.readyState==4 && (xhr.status==200 || xhr.status==304)){
           var respData=xhr.responseText;
@@ -105,6 +104,7 @@ var utils ={
           if(error) error();
         }
       }
+      xhr.send(data);	//get类型data为null
     }
   },
   /**
