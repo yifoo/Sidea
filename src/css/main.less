@@ -261,15 +261,18 @@
       overflow: hidden;
     }
     #pagination{
+      float:left;
       position:absolute;
-      bottom:3rem;
-      left: 20%;
+      left: 50%;
+      margin-bottom:4rem;
       li{
         float: left;
+        position: relative;
+        right: 50%;
       }
       li>a{
         display: inline-block;
-        margin:0 .5rem;
+        margin:0 .25rem;
         text-align: center;
         width:2rem;
         height:2rem;
@@ -364,10 +367,22 @@
   opacity: 1;
   z-index:2;
 }
-@media screen and(max-width: 650px){
-  .tab-container .content-box{
-    width:100%;
-  }
+.tab-container .content-box.allWidth{
+  width:99%;
+}
+@media screen and (max-width: 650px){
+  .tab-container{
+    .content-box{
+      width:100%;
+    }
+    #tab1 #pagination{
+      left: 15%;
+      li{
+        right: auto;
+      }
+    }
+  } 
+  
 }
 .icon-bulb{
   font-size:14px

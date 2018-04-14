@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-11 20:17:13 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-04-14 22:03:07
+ * @Last Modified time: 2018-04-15 00:22:40
  * @name:公共方法库
  */
 
@@ -19,7 +19,7 @@ var utils ={
     }
   //把document的fontSize大小设置成跟窗口成一定比例的大小。
     html.style.fontSize = 20 * (clientWidth / 750) + 'px';
-    console.log(html.style.fontSize);
+    console.log("字体大小",html.style.fontSize);
   },
 
   /**
@@ -104,6 +104,7 @@ var utils ={
           if(error) error();
         }
       }
+      //xhr.send()方法要放在后面,这样xhr.onreadystatechange方法提前绑定监听xhr.readyState,同步请求才能拿到数据
       xhr.send(data);	//get类型data为null
     }
   },
@@ -159,6 +160,27 @@ var utils ={
           }
         }
       }
-  }
+      //计算分页器的定位
+      var contentBox=document.querySelectorAll('.content-box');
+      var pagination=document.getElementById("pagination");
+      utils.computeTop(contentBox,pagination);
+  },
+  /**
+ * @name: 计算分页器的top值,设置其定位
+ * @param {contentBox} 各个小box 
+ * @param {pagination} 分页器对象 
+ */
+computeTop:function (contentBox,pagination){
+  var lastEle=contentBox[contentBox.length-1];
+  var last2Ele=contentBox[contentBox.length-2];
+  //计算最后两个box的top和height值并比较
+  var  lastTop=Number(window.getComputedStyle(lastEle,null).top.slice(0,-2));
+  var  lastHeight=Number(window.getComputedStyle(lastEle,null).height.slice(0,-2));
+  var  last2Top=Number(window.getComputedStyle(last2Ele,null).top.slice(0,-2));
+  var  last2Height=Number(window.getComputedStyle(last2Ele,null).height.slice(0,-2));
+  var top=(lastTop+lastHeight)>(lastTop+lastHeight)? (lastTop+lastHeight):(lastTop+lastHeight);
+  var fontSize=Number(window.getComputedStyle(document.documentElement,null).fontSize.slice(0,-2));
+  pagination.style.top=top/fontSize+4+'rem';
+}
 }
 export default utils;

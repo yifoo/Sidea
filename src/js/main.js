@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-04-14 21:55:59
+ * @Last Modified time: 2018-04-15 00:37:40
  * @description:首页js 
  */
 
@@ -48,16 +48,21 @@ import utils from '../common/utils';
       value.setAttribute("class",'');
     }
     this.classList.toggle("active");
+    var contentBox=document.getElementsByClassName("content-box");
+    if(this.parentNode.children[1].className=="active"){
+      for(var value of contentBox){
+        value.className="content-box allWidth"
+      }  
+    }else{
+      for(var value of contentBox){
+        value.className="content-box"
+      }  
+    }
+    var ideaMain=document.getElementById("idea-main");
+    utils.waterFall(ideaMain,5);
   })
 })();
 
-/**
- * 渲染idea
- */
-(()=>{
-  
-  
-})();
 /**
  * 渲染用户积分排名
  */
@@ -88,13 +93,13 @@ window.onload=function(){
   var pno=1,pageSize=10;
   loadPage(pno,pageSize);
   var ideaMain=document.getElementById("idea-main");
-  var items = ideaMain.children;
-  var contentBox=document.querySelectorAll('.content-box');
-  console.log(contentBox);
-  var lastEle=contentBox[items.length-1];
-  var last2Ele=contentBox[items.length-2];
-  var  lastTop=window.getComputedStyle(lastEle,null).top;
-  console.log(lastEle,last2Ele,lastTop);
+  //瀑布式布局,parent:ideaMain,oneGap:5
+  utils.waterFall(ideaMain,5)
+  window.onresize = function() {
+    utils.waterFall(ideaMain,5)
+  };
+
+  //针对分页器绑定单击事件
   var pagination=document.getElementById("pagination");
   utils.bindEvents(pagination,"click","li:not(.disabled) a",function(e){
     e.preventDefault();
@@ -107,21 +112,14 @@ window.onload=function(){
       pno=parseInt(n)+1;
     }
     loadPage(pno,pageSize);
-    setTimeout(() => {
-      var contentBox=document.getElementById("idea-main");
-      var items = contentBox.children;
-      utils.waterFall(contentBox,5)
-    }, 500);
-  })
-  setTimeout(() => {
     utils.waterFall(ideaMain,5)
-  },100)
-  window.onresize = function() {
-    setTimeout(() => {
-      utils.waterFall(ideaMain,5)
-    },0)
-  };
+  })
 }
+/**
+ * @name:加载内容
+ * @param {pno} :当前页码 
+ * @param {pageSize} :加载的条数 
+ */
 function loadPage(pno,pageSize){
   utils.$.ajax({
     url:"https://www.haohome.top/sidea/req_idea.php",
@@ -134,7 +132,6 @@ function loadPage(pno,pageSize){
       }
       var dataPage=resp.pageResponse;   //获得分页数据
       var data=resp.list;               //获得列表数据
-      console.log("得到数据",data);
       var html="";
       for(var i=0;i<data.length;i++){
         html+=`
@@ -159,7 +156,6 @@ function loadPage(pno,pageSize){
           </div>
         </div>
         `
-        console.log("支援请求完毕");
       }
       var idea=document.getElementById("idea-main"); 
       idea.innerHTML=html;
@@ -202,4 +198,16 @@ function loadPage(pno,pageSize){
       next.className="next disabled";
     }
   })
+  //视图判断,这是一个比较笨的方法...
+  var contentBox=document.getElementsByClassName("content-box");
+  var li=document.querySelectorAll(".l-tabs li");
+    if(li[1].className=="active"){
+      for(var value of contentBox){
+        value.className="content-box allWidth"
+      }  
+    }else{
+      for(var value of contentBox){
+        value.className="content-box"
+      }  
+    }
 }
