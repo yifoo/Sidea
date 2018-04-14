@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-10 14:08:42 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-04-12 00:05:27
+ * @Last Modified time: 2018-04-14 16:57:13
  * @description:首页js 
  */
 
@@ -80,11 +80,14 @@ import utils from '../common/utils';
  * 渲染用户积分排名
  */
 (()=>{
-  utils.ajax({
+  utils.$.ajax({
     url:"user/",
-    methods:"get",
-    success:function(data){
-      var data=data.list;
+    method:"get",
+    success:function(resp){
+      if(typeof(resp)=='string'){
+        resp=JSON.parse(resp);
+      }
+      var data=resp.list;
       var html="";
       for(var key in data){
         html+=`
@@ -114,15 +117,18 @@ window.onload=function(){
   };
 }
 function loadPage(pno,pageSize){
-  utils.ajax({
+  utils.$.ajax({
     url:"https://www.haohome.top/sidea/req_idea.php",
-    methods:"get",
+    method:"get",
     data:{pno:pno,pageSize:pageSize},
     async:true,
-    success:function(data){
+    success:function(resp){
+      if(typeof(resp)=='string'){
+        resp=JSON.parse(resp);
+      }
+      var dataPage=resp.pageResponse;   //获得分页数据
+      var data=resp.list;               //获得列表数据
       console.log("得到数据",data);
-      var dataPage=data.pageResponse;   //获得分页数据
-      var data=data.list;               //获得列表数据
       var html="";
       for(var i=0;i<data.length;i++){
         html+=`

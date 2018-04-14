@@ -2,7 +2,7 @@
  * @Author: Daniel Hfood 
  * @Date: 2018-03-11 20:17:13 
  * @Last Modified by: Daniel
- * @Last Modified time: 2018-04-12 23:55:07
+ * @Last Modified time: 2018-04-14 16:53:08
  * @name:公共方法库
  */
 
@@ -61,44 +61,48 @@ var utils ={
    * @name:封装ajax方法
    * @param:参数对象包含methods,url,success方法等
    */
-  ajax:function(obj){
-    /**获得xhr */
-    var xhr;
-    if(window.XMLHttpRequest){
-      xhr=new XMLHttpRequest();
-    }else{
-      xhr=new ActiveXObject("MicroSoft.XMLHttp")
-    }
-    /**请求类型 */
-    var type=obj.method || obj.type;	//支持方法属性为method或type;
-    var async=obj.async == undefined ? true : obj.async;
-    var data = obj.data == undefined ? {} : obj.data;
-    if(type.toLowerCase()==="get"){   //get方法的data拼接
-      if(data){										//obj.data为js对象	
-        var params=[];
-        for(var key in data){
-          params.push(key+"="+data[key])	//将对象键值对以字符串形式存入数组中
-        }
-        var str=params.join("&");					//拼接字符串
-        xhr.open(type,obj.url+"?"+str,async)
+  $:{
+    /*get方法传入data,返回一个拼接好的字符串uname=min&age=12*/
+    params:function(data){
+      var arr=[];
+      for(var key in data){
+        arr.push(key+"="+data[key])//将对象键值对以字符串形式存入数组中
+      }
+      var str=arr.join("&");
+      return str;
+    },
+    /*该方法发送http请求*/
+    ajax:function(obj){
+      var url=obj.url;
+      var type=obj.method || obj.type;//支持方法属性为method或type;
+      var async=obj.async == undefined ? true : obj.async;
+      var data = obj.data == undefined ? {} : obj.data;
+      var success=obj.success;
+      var error=obj.error;
+      //创建一个XMLHttpRequest 对象
+      var xhr;
+      if(window.XMLHttpRequest){
+        xhr=new XMLHttpRequest();
+      }else{	//微软IE浏览器的xhr对象
+        xhr=new ActiveXObject("MicroSoft.XMLHttp")
+      };
+      //判断请求类型是"get"还是"post"
+      if(type.toLowerCase()==="get"){
+        //get类型的url参数为拼接字符串
+        url=url+"?"+this.params(data);
+        data=null;
       }else{
-        xhr.open(type,obj.url,async)
+        //post类型要给服务器端一个请求头
+        xhr.setRequestHeader('Content-Type',"application/x-www-form-urlencoded")
       }
-      xhr.send(null);
-    }else{
-      xhr.open(type,url,async)
-      xhr.send(obj.data);
-    }
-    xhr.onreadystatechange=function(){      //ajax状态判断
-      if(xhr.readyState==4&&xhr.status==200){
-        if(typeof(xhr.response)=="string"){
-          var resp=JSON.parse(xhr.response);
-        }
-        obj.success(resp,xhr.response)    //ajax成功则返回数据
-      }
-      else{
-        if(obj.error){
-          obj.error(xhr)
+      xhr.open(type,url,async);
+      xhr.send(data);	//get类型data为null
+      xhr.onreadystatechange=function(){
+        if(xhr.readyState==4 && (xhr.status==200 || xhr.status==304)){
+          var respData=xhr.responseText;
+          success(respData);//成功后执行的方法
+        }else{
+          if(error) error();
         }
       }
     }
