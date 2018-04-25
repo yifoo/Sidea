@@ -52,12 +52,6 @@ var utils ={
     })
   },
   /**
-   * @name:获取xhr对象
-   */
-  getXhr:function(){
-    
-  },
-  /**
    * @name:封装ajax方法
    * @param:参数对象包含methods,url,success方法等
    */
